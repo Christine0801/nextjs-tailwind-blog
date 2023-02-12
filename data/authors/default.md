@@ -2,10 +2,8 @@
 name: 子君
 avatar: /static/images/avatar.png
 occupation: 全栈小白
-company: 分享 JavaScript 热门框架，记录前端工程师学习成长历程。
+company: 希君生羽翼，艺华北溟鱼。
 email: w_zijun0801@tom.com
-juejin: #
-zhihu: #
 github: https://github.com/Christine0801
 ---
 

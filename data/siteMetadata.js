@@ -12,8 +12,6 @@ const siteMetadata = {
   socialBanner: '/static/images/twitter-card.png',
   email: 'w_zijun0801@tom.com',
   github: 'https://github.com/Christine0801',
-  juejin: '#',
-  zhihu: '#',
   locale: 'zh-CN',
   welcome: '与君相识三载，仿似三千春秋',
   analytics: {
