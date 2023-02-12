@@ -116,4 +116,7 @@ module.exports = withBundleAnalyzer({
 
     return config
   },
+  nextConfig: {
+    swcMinify: false
+  }
 })
