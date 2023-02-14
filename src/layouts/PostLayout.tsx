@@ -99,7 +99,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
               <div className="prose max-w-none break-words pt-10 pb-8 dark:prose-dark">
                 {children}
               </div>
-              <div className="border-t border-gray-200 pt-6 pb-6 text-sm text-gray-700 dark:border-gray-700 dark:text-gray-300">
+              {/*<div className="border-t border-gray-200 pt-6 pb-6 text-sm text-gray-700 dark:border-gray-700 dark:text-gray-300">
                 <div className="mb-3">
                   <Image
                     alt="runjs-cool"
@@ -111,7 +111,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
 
                 <span>关注微信公众号，获取最新原创文章（首发）</span>
                 <Link href={editUrl(fileName)}>{'View on GitHub'}</Link>
-              </div>
+              </div>*/}
               <Comments frontMatter={frontMatter} />
             </div>
             <footer>
