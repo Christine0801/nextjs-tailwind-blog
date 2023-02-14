@@ -91,10 +91,14 @@ cat /root/魔戒.net > ~/.config/clash/config.yaml
 - 2.第二种就是使用**wget**命令，这种更方便更快
 
 ```bash
-wget -0 ~/.config/clash/config.yaml "clash的订阅链接"
+wget -O ~/.config/clash/config.yaml "clash的订阅链接"
 ```
 
 链接需要带双引号
+然后是下载Country.mmdb
+```bash
+wget -O ~/.config/clash/Country.mmdb https://www.sub-speeder.com/client-download/Country.mmdb
+```
 
 2、接下来我们需要配置HTTP代理和HTTPS代理。配置之前我们需要查看config.yaml配置文件的端口设置。有的是**http 7890**和**sockets 7891**（https），有的文件则是混合端口**mixed-port 7890**。所以我们需要找到这几个参数，一般都是在配置文件的前几行就可以看见，我们使用**head**命令查看前10行看看
 
@@ -162,4 +166,42 @@ curl https://www.google.com.hk/
 ```bash
 git config --global http.proxy 'http://127.0.0.1:7890'
 ```
+# 三、关闭Clash
+关闭Clash也分两种情况，一种是完全关闭Clash，另一种就是取消Clash代理流量，但是Clash仍然在后台运行
 
+- 1、先说第一种
+
+​		直接杀死Clash进程，用**ps**命令获取clash的pid，然后用**kill**命令杀死
+
+```bash
+ps -ef | grep clash | grep -v 'grep'
+kill -9 258907
+```
+
+![image-20230214211002876](https://my-markdown-image-host.oss-cn-shanghai.aliyuncs.com/image-20230214211002876.png)
+
+然后再关闭代理端口
+
+```bash
+unset http_proxy
+unset https_proxy
+```
+
+如果不关闭的话，会导致没有网络
+
+- 2、再说第二种
+
+​		其实就是第一种省却了第一步，不杀死Clash进程，只关闭代理端口，下次要用的话再使用**source**命令就好了
+
+```bash
+unset http_proxy
+unset https_proxt
+```
+
+​		如果想再次使用就source一下
+
+```bash
+source /etc/profile
+```
+
+​		因为http_proxy、https_proxy已经写到全局变量里面了
