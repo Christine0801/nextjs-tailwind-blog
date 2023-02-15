@@ -19,9 +19,34 @@ const Pre = ({ children }: Props) => {
   const onCopy = () => {
     setCopied(true)
     navigator.clipboard.writeText(textInput.current.textContent)
-    setTimeout(() => {
-      setCopied(false)
-    }, 2000)
+      if (navigator.clipboard && window.isSecureContext) {
+        // navigator clipboard 向剪贴板写文本
+        setTimeout(() => {
+          setCopied(false)
+        }, 2000)
+        return navigator.clipboard.writeText(textInput.current.textContent)
+      } else {
+        // 创建text area
+        const textArea = document.createElement('textarea')
+        textArea.value = textInput.current.textContent
+        // 使text area不在viewport，同时设置不可见
+        document.body.appendChild(textArea)
+        textArea.focus()
+        textArea.select()
+        this.$message.success('复制成功')
+        setTimeout(() => {
+          setCopied(false)
+        }, 2000)
+        return new Promise((res, rej) => {
+          // 执行复制命令并移除文本框
+          document.execCommand('copy') ? res() : rej()
+          textArea.remove()
+        })
+      }
+
+    // setTimeout(() => {
+    //   setCopied(false)
+    // }, 2000)
   }
 
   return (
