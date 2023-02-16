@@ -1,3 +1,4 @@
+---
 title: '让Debian终端文件显示不同颜色'
 date: '2023/2/15'
 lastmod: '2023/2/15'
@@ -10,10 +11,11 @@ images:
   ]
 authors: ['default']
 layout: PostLayout
+---
 
 # 前言
 
-​	在我们使用Linux不同发行版时，如CentOS、Ubuntu或者Debian，我们使用**ls**命令，有时候会发现列举出来的文件都会带有颜色，那如果没有颜色就需要配置一下。
+  在我们使用Linux不同发行版时，如CentOS、Ubuntu或者Debian，我们使用**ls**命令，有时候会发现列举出来的文件都会带有颜色，那如果没有颜色就需要配置一下。
 
 # 修改.bashrc文件
 
