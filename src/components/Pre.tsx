@@ -18,32 +18,28 @@ const Pre = ({ children }: Props) => {
   }
   const onCopy = () => {
     setCopied(true)
-    // navigator.clipboard.writeText(textInput.current.textContent)
+    navigator.clipboard.writeText(textInput.current.textContent)
 
     setTimeout(() => {
       setCopied(false)
     }, 2000)
 
-    if (navigator.clipboard && window.isSecureContext) {
-      return navigator.clipboard.writeText(textInput.current.textContent)
-    } else {
-      let textArea = document.createElement("textarea")
-      textArea.value = textInput.current.textContent
-      textArea.style.position = "fixed"
-      textArea.style.left = "-999999px"
-      textArea.style.top = "-999999px"
-      document.body.appendChild(textArea)
-      textArea.focus()
-      textArea.select()
-      return new Promise((res, rej) => {
-        document.execCommand('copy') ? res() : rej()
-        textArea.remove()
-      })
-    }
-
-    // setTimeout(() => {
-    //   setCopied(false)
-    // }, 2000)
+    // if (navigator.clipboard && window.isSecureContext) {
+    //   return navigator.clipboard.writeText(textInput.current.textContent)
+    // } else {
+    //   let textArea = document.createElement("textarea")
+    //   textArea.value = textInput.current.textContent
+    //   textArea.style.position = "fixed"
+    //   textArea.style.left = "-999999px"
+    //   textArea.style.top = "-999999px"
+    //   document.body.appendChild(textArea)
+    //   textArea.focus()
+    //   textArea.select()
+    //   return new Promise((res, rej) => {
+    //     document.execCommand('copy') ? res() : rej()
+    //     textArea.remove()
+    //   })
+    // }
   }
 
   return (
