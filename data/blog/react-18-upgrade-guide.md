@@ -1,7 +1,7 @@
 ---
 title: '如何升级到 React 18发布候选版 '
-date: '2022/3/15'
-lastmod: '2022/3/15'
+date: 2026-03-14 22:45:13
+lastmod: 2023-01-25 21:48:20 +0800
 tags: [前端, React.js]
 draft: false
 summary: '上周 react 官网 发布了react@rc 版本，该版本是候选版本(Release Candidate)，这意味API已经基本稳定，跟最终版本不会有太大差别，官网也发布博客《如何升级到 react18 RC 版本》，鼓励大家尝试升级，所以我们可以在项目组中使用了！下面内容来自是官方文档的翻译。'

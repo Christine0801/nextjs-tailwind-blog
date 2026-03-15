@@ -1,7 +1,7 @@
 ---
 title: 使用 Next.js 搭建 Monorepo 组件库文档
-date: 2022/11/23 00:59:38
-lastmod: 2023/1/25 11:42:26
+date: 2026-03-14 22:45:16
+lastmod: 2023-01-25 11:53:30 +0800
 tags: [前端, React.js]
 draft: false
 summary: 本文，我们从零开始，使用 Next.js 和 pnpm 搭建了一个组件库文档，主要使用 Next.js 动态导入功能解决了开发服务缓慢的问题，使用 Next.js 的 SSG 模式来生成静态文档。

@@ -1,7 +1,7 @@
 ---
 title: '实现一个 Code Pen：（六）云函数生成网页缩略图'
-date: '2022/5/13'
-lastmod: '2022/5/13'
+date: 2026-03-14 22:45:10
+lastmod: 2022-05-13 17:27:26 +0800
 tags: [JavaScript, React.js]
 draft: false
 summary: '本文介绍了生成缩略图的方式，包含客户端生成，和服务端生成，并简要分析了阿里云、腾讯云和 vercel 生成浏览器截图的方式。'

@@ -1,7 +1,7 @@
 ---
 title: 'React 新的文档用到了哪些技术？'
-date: '2022/1/13'
-lastmod: '2022/1/14'
+date: 2026-03-14 22:45:14
+lastmod: 2022-02-25 23:36:25 +0800
 tags: [前端, React.js]
 draft: false
 summary: '前言 https://beta.reactjs.org React 的新的文档已经 完成了 70 % 并且呼吁社区进行翻译工作。 新的文档采用了全新的架构 next.js + Tailwind CSS'

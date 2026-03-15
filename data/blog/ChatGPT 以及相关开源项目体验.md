@@ -1,7 +1,7 @@
 ---
 title: ChatGPT 以及相关开源项目体验
-date: 2022/12/12 22:55:57
-lastmod: 2023/1/25 11:42:11
+date: 2026-03-14 22:45:09
+lastmod: 2023-01-25 11:53:30 +0800
 tags: [前端, OpenAI, 掘金·金石计划]
 draft: false
 summary: 本月初，ChatGPT 以惊人的速度问世，在技术圈中引起了广泛讨论。在 GitHub 上近期还诞生了多个 ChatGPT 相关的开源项目，数量之多令人瞠目结舌。

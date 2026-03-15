@@ -1,7 +1,7 @@
 ---
 title: 'MDX 让 Markdown 步入组件时代'
-date: '2022/2/25'
-lastmod: '2022/2/25'
+date: 2026-03-14 22:45:12
+lastmod: 2022-02-25 23:36:25 +0800
 tags: [前端, React.js]
 draft: false
 summary: 'MDX 是一种书写格式，允许你在 Markdown 文档中无缝地插入 JSX 代码。 你还可以导入（import）组件，例如交互式图表或弹框，并将它们嵌入到内容当中。'

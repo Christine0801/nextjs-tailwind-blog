@@ -1,7 +1,7 @@
 ---
 title: '用 NodeJS 开发一版在线流程图网站'
-date: '2021/11/10'
-lastmod: '2022/03/11'
+date: 2026-03-14 22:45:10
+lastmod: 2022-03-11 09:26:58 +0800
 tags: [JavaScript, Node.js]
 draft: false
 summary: '对于程序员来说，每天除了写代码，接触较多的可能是各种图表了，诸如流程图、原型图、拓扑图、UML 图以及思维导图等等，我们较为熟悉的是 ProcessOn了'

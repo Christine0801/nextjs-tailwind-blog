@@ -1,7 +1,7 @@
 ---
 title: 使用 NextAuth.js 给 Next.js 应用添加鉴权与认证
-date: 2022/10/18 00:12:49
-lastmod: 2023/1/25 11:42:55
+date: 2026-03-14 22:45:16
+lastmod: 2023-01-25 11:53:30 +0800
 tags: [React.js]
 draft: false
 summary: 在上一篇文章中，我们使用 prisma 和 Next.js，创建了一个视频网站，本文将继续开发视频网站，实现邮箱登录、 Github 授权登录，以及密码登录。

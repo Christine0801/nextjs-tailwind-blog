@@ -1,7 +1,7 @@
 ---
 title: 'TailwindCSS 资源推荐'
-date: '2022/1/5'
-lastmod: '2022/1/10'
+date: 2026-03-14 22:45:14
+lastmod: 2023-01-25 21:48:20 +0800
 tags: [前端, GitHub]
 draft: false
 summary: 'TailwindCSS 发布了 3.0， 功能也越来越好用，那么是否有与之相关的组件库呢 ？本文是我将推荐我个人认为比较好用的资源。'

@@ -1,7 +1,7 @@
 ---
 title: '在 Webpack 5 中开启懒编译（Lazy Compilation）'
-date: '2022/5/12'
-lastmod: '2022/5/12'
+date: 2026-03-14 22:45:16
+lastmod: 2023-01-25 21:48:20 +0800
 tags: [JavaScript, React.js]
 draft: false
 summary: '在 webpack 5 中推出了 experiments 配置，目的是为了给用户赋能去开启并试用一些实验的特性。Lazy Compilation 是只有在用户访问时才编译。'
