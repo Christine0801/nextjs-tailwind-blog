@@ -1,7 +1,7 @@
 ---
 title: '使用 React 和 NodeJS 创建一个全栈项目'
-date: '2021/11/25'
-lastmod: '2022/1/14'
+date: 2026-03-14 22:45:13
+lastmod: 2022-02-25 23:36:25 +0800
 tags: [前端, Node.js]
 draft: false
 summary: '在本文中，我将使用 React 和 NodeJS 创建一个全栈项目。介绍下如何让 Node.js 作为 web 服务器来加载静态资源，如何让 React 程序可以直接调用 Node API。'

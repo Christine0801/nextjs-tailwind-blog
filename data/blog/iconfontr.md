@@ -1,7 +1,7 @@
 ---
 title: '【油猴脚本】在 Iconfont 上直接复制 React component 代码'
-date: '2022/7/22'
-lastmod: '2022/7/22'
+date: 2026-03-14 22:45:11
+lastmod: 2023-01-25 21:48:20 +0800
 tags: [JavaScript, React.js]
 draft: false
 summary: '所以我写了一个油猴脚本，可以在 iconfont.cn 上直接复制 React component 代码，本文讲述改脚本的实现原理。'

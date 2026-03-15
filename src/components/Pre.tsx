@@ -26,11 +26,11 @@ const Pre = ({ children }: Props) => {
     if (navigator.clipboard && window.isSecureContext) {
       return navigator.clipboard.writeText(textInput.current.textContent)
     } else {
-      let textArea = document.createElement("textarea")
+      let textArea = document.createElement('textarea')
       textArea.value = textInput.current.textContent
-      textArea.style.position = "fixed"
-      textArea.style.left = "-999999px"
-      textArea.style.top = "-999999px"
+      textArea.style.position = 'fixed'
+      textArea.style.left = '-999999px'
+      textArea.style.top = '-999999px'
       document.body.appendChild(textArea)
       textArea.focus()
       textArea.select()
@@ -43,6 +43,13 @@ const Pre = ({ children }: Props) => {
 
   return (
     <div ref={textInput} onMouseEnter={onEnter} onMouseLeave={onExit} className="relative">
+      {/* 红黄绿三个小圆点 - 常态化显示 */}
+      <div className="absolute left-2 top-2 flex gap-1.5">
+        <div className="h-3 w-3 rounded-full bg-red-500" />
+        <div className="h-3 w-3 rounded-full bg-yellow-500" />
+        <div className="h-3 w-3 rounded-full bg-green-500" />
+      </div>
+
       {hovered && (
         <button
           aria-label="Copy code"
@@ -84,7 +91,7 @@ const Pre = ({ children }: Props) => {
         </button>
       )}
 
-      <pre>{children}</pre>
+      <pre className="pt-6">{children}</pre>
     </div>
   )
 }

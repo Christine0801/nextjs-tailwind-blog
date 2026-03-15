@@ -1,7 +1,7 @@
 ---
 title: 使用油猴脚本净化 CSDN
-date: 2022/9/3 14:33:01
-lastmod: 2023/1/25 11:43:07
+date: 2026-03-14 22:45:17
+lastmod: 2023-01-25 11:53:30 +0800
 tags: [JavaScript]
 draft: false
 summary: CSDN 的百度搜索权重很高，比如我们搜索一个关键词， 输入`react 性能优化`，第一个就是 CSDN 的链接，打开 CSDN 的链接，里面有很多广告，我们可以通过油猴脚本来净化页面。

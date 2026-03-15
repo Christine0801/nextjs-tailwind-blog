@@ -1,7 +1,7 @@
 ---
 title: '使用 phaser3 从零实现一个战疫小游戏'
-date: '2022/4/14'
-lastmod: '2022/4/14'
+date: 2026-03-14 22:45:12
+lastmod: 2022-04-14 00:54:14 +0800
 tags: [游戏]
 draft: false
 summary: ''

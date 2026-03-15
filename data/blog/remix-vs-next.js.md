@@ -1,7 +1,7 @@
 ---
 title: 'Remix 对比 Next.js ：一文深度解析'
-date: '2022/2/22'
-lastmod: '2022/2/22'
+date: 2026-03-14 22:45:14
+lastmod: 2022-02-25 23:36:25 +0800
 tags: [React.js]
 draft: false
 summary: '在本文中，我将对比 Next.js 和 Remix 的一些重要特性，来帮助您选择最佳的React 服务端渲染框架。'

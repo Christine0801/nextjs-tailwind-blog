@@ -1,7 +1,7 @@
 ---
 title: '一个 create-react-app v5 的问题'
-date: '2022/2/16'
-lastmod: '2022/3/11'
+date: 2026-03-14 22:45:09
+lastmod: 2022-03-11 09:26:58 +0800
 tags: [React.js]
 draft: false
 summary: '前两天我准备用 create-react-app 创建一个新项目，然后遇到了一个问题，涉及到 npx'

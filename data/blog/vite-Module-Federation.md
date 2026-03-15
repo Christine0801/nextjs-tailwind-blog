@@ -1,7 +1,7 @@
 ---
 title: 'Vite 也可以模块联邦'
-date: '2022/7/22'
-lastmod: '2022/2/25'
+date: 2026-03-14 22:45:15
+lastmod: 2023-01-25 21:48:20 +0800
 tags: [Vite]
 draft: false
 summary: '之前写过一篇文章，《将 React 应用迁移至 Vite》介绍了 Vite 的优势，并且和 webpack 做对比，但 webpack5 有个很重要的功能，就是模块联邦，那么什么是模块联邦？'

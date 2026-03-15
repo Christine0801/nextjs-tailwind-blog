@@ -1,7 +1,7 @@
 ---
 title: 'HTML 转 Markdown 如此简单'
-date: '2022/2/23'
-lastmod: '2022/2/24'
+date: 2026-03-14 22:45:11
+lastmod: 2022-02-25 23:36:25 +0800
 tags: [JavaScript, React.js]
 draft: false
 summary: '本文推荐 HTML 转为 markdown 的工具和实现方式，并找到了一个快捷技巧，收藏等于学会。'

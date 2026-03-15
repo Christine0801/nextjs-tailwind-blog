@@ -1,7 +1,7 @@
 ---
 title: '【实战】Next.js + 云函数开发一个面试刷题网站'
-date: '2022/8/8'
-lastmod: '2022/8/8'
+date: 2026-03-14 22:45:10
+lastmod: 2022-08-08 16:46:10 +0800
 tags: [Next.js]
 draft: false
 summary: '前段时间开发了一个面试刷题小程序——面试狗，主要使用了 uniapp + unicloud 云开发实现，今天我们来开发一个与之对应的 PC 版面试刷题网站。'

@@ -1,7 +1,7 @@
 ---
 title: '如何测试驱动开发 React 组件？'
-date: '2021/11/30'
-lastmod: '2022/1/16'
+date: 2026-03-14 22:45:14
+lastmod: 2022-02-25 23:36:25 +0800
 tags: [测试]
 draft: false
 summary: '什么是TDD（Test-driven development），就是测试驱动开发，是敏捷开发中的一项核心实践和技和技术。'

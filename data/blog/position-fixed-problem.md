@@ -1,7 +1,7 @@
 ---
 title: '前端妹子问我 position fixed  失效问题该如何解决？'
-date: '2022/5/25'
-lastmod: '2022/5/25'
+date: 2026-03-14 22:45:13
+lastmod: 2022-06-25 10:15:56 +0800
 tags: [JavaScript, React.js, CSS]
 draft: false
 summary: '这两天公司一位妹子问我，“我这边调试的时候本地显示没问题，到手机端就有问题，该怎么办呢？” 测试环境没问题到线上就有问题了？对此我也很纳闷。'

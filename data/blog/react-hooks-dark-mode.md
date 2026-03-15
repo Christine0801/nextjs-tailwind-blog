@@ -1,7 +1,7 @@
 ---
 title: '使用 React hooks 监听系统的暗黑模式'
-date: '2022/2/10'
-lastmod: '2022/2/12'
+date: 2026-03-14 22:45:13
+lastmod: 2022-02-25 23:36:25 +0800
 tags: [React.js, JavaScript]
 draft: false
 summary: '现在大部分网站也加入了暗黑模式，包括 Tailwindcss、antd design 等都支持了暗黑模式，因此我们的网站也要适配系统皮肤。'

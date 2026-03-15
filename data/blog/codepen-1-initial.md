@@ -1,7 +1,7 @@
 ---
 title: '实现一个 Code Pen：（一）项目初始化'
-date: '2022/5/12'
-lastmod: '2022/5/12'
+date: 2026-03-14 22:45:10
+lastmod: 2022-05-12 11:31:31 +0800
 tags: [JavaScript, React.js]
 draft: false
 summary: '前段时间掘金上线了一个新功能 Code pen，可以在线写代码，笔者对这种在线实时编辑的功能充满了好奇，所以打算开发一个简易的 Code pen。'

@@ -1,7 +1,7 @@
 ---
 title: 创建 React 应用的 7 种方式，你用过几种？
-date: 2022/12/6 23:56:54
-lastmod: 2023/1/25 11:42:13
+date: 2026-03-14 22:45:17
+lastmod: 2023-01-25 11:53:30 +0800
 tags: [React.js, 掘金·金石计划]
 draft: false
 summary: 本文例举创建 react 应用的常见 7 种方式，首先，我们第一个是想到的是 react 官方团队提供的脚手架工具 Create React App(cra) 项目是零配置。

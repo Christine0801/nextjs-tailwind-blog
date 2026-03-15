@@ -1,7 +1,7 @@
 ---
 title: 理解 Next.js 中的 CSR、SSR、SSG、ISR 以及 Streaming
-date: 2022/11/6 13:51:14
-lastmod: 2023/1/25 11:42:31
+date: 2026-03-14 22:45:17
+lastmod: 2023-01-25 11:53:30 +0800
 tags: [React.js]
 draft: false
 summary: Next.js 提供了 CSR、SSR、SSG、ISR、 Streaming 这么多渲染方式，本文就从渲染方式方面来讲解，让我们可以更好地理解 Next.js 以及使用 Next.js。

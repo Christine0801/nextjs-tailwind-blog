@@ -1,7 +1,7 @@
 ---
 title: '将 React 应用迁移至 Vite'
-date: '2022/6/25'
-lastmod: '2022/6/25'
+date: 2026-03-14 22:45:10
+lastmod: 2022-06-25 10:15:56 +0800
 tags: [React.js, Vite]
 draft: false
 summary: 'Vite 充分利用了浏览器的加载机制和缓存机制等，大大提示了研发效率，vite 虽然快，但不是所有的项目react 项目都可以迁移成功'
