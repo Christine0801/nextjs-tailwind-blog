@@ -499,210 +499,11 @@ main().catch((error) => {
 1. 更新文章修改时间
 2. 为新文章生成封面
 3. 构建 Next.js 项目
-4. 生成站点地图
+4. 生成站点地
 
-## 4. 踩过的坑与解决方案
+## 4. 注意事项和最佳实践
 
-### 4.1 TypeScript vs JavaScript 问题
-
-#### 问题现象
-
-```
-Error: Cannot find module '../src/lib/mdx'
-```
-
-#### 问题原因
-
-- 项目中 TypeScript 文件（`.ts`）和 JavaScript 文件（`.js`）混用
-- Node.js 脚本无法直接 `require` TypeScript 文件
-- Next.js 会自动编译 TypeScript，但普通 Node.js 脚本不会
-
-#### 解决方案
-
-- 所有脚本文件使用 JavaScript（`.js`）
-- 在脚本内部直接实现所需功能，不依赖 TypeScript 文件
-- 保持项目一致性
-
-**经验教训**：
-
-- Next.js 项目中：源代码用 TypeScript，脚本用 JavaScript
-- 不要在脚本中直接 `require` TypeScript 文件
-
-### 4.2 环境变量加载问题
-
-#### 问题现象
-
-```
-⚠️  UNSPLASH_ACCESS_KEY 未配置，使用默认图片
-```
-
-#### 问题原因
-
-- Node.js 脚本默认不会自动加载 `.env` 文件
-- 只有 Next.js 应用会自动加载
-- 环境变量在模块加载时就读取，但 `.env` 文件在之后才加载
-
-#### 解决方案
-
-```javascript
-function loadEnvFile() {
-  const envPath = path.join(__dirname, '..', '.env')
-  if (fs.existsSync(envPath)) {
-    const envContent = fs.readFileSync(envPath, 'utf8')
-    envContent.split('\n').forEach((line) => {
-      const [key, value] = line.split('=')
-      if (key && value) {
-        process.env[key] = value.trim()
-      }
-    })
-  }
-}
-
-// 在脚本开头调用
-loadEnvFile()
-```
-
-**经验教训**：
-
-- Node.js 脚本需要手动加载 `.env` 文件
-- 环境变量读取要放在实际使用之前
-- 或者直接在函数中读取 `process.env.UNSPLASH_ACCESS_KEY`
-
-### 4.3 图片加载问题
-
-#### 问题现象
-
-- Unsplash 图片在浏览器中可以直接访问
-- 但在网页中无法加载
-
-#### 问题原因
-
-- `Referrer-Policy` 设置为 `strict-origin-when-cross-origin`
-- Unsplash 需要完整的 referrer 信息验证请求来源
-
-#### 解决方案
-
-修改 `next.config.js`：
-
-```javascript
-{
-  key: 'Referrer-Policy',
-  value: 'no-referrer-when-downgrade',
-}
-```
-
-**经验教训**：
-
-- 外部图片加载可能受 Referrer Policy 影响
-- 遇到图片加载问题，检查安全头配置
-- CSP 中 `img-src *` 允许所有图片来源
-
-### 4.4 封面图片随机变化问题
-
-#### 问题现象
-
-- 不同用户访问看到不同的封面
-- 同一用户多次访问封面也可能变化
-
-#### 问题原因
-
-- Unsplash API 搜索结果有随机性
-- 每次调用 API 都返回不同的图片
-
-#### 解决方案
-
-- **构建时生成**：在构建阶段调用 API，获取图片 URL
-- **写入 FrontMatter**：将图片 URL 写入文章的 `images` 字段
-- **永久固定**：文章封面永久固定，不再变化
-
-**经验教训**：
-
-- API 返回结果可能有随机性，需要缓存机制
-- 写入文件是简单的缓存方案
-- 避免每次运行时都重新生成
-
-### 4.5 Nginx 配置问题
-
-#### 问题现象
-
-- 服务器部署后无法访问
-- 显示"连接关闭"
-
-#### 问题原因
-
-- Nginx 配置文件语法错误
-- `gzip_types` 配置被意外换行
-
-#### 错误配置：
-
-```nginx
-gzip_types text/plain text/css text/xml text/javascript application/x-javascript application/xml+rss
-   application.json;  # ❌ 错误：换行了
-```
-
-#### 正确配置：
-
-```nginx
-gzip_types text/plain text/css text/xml text/javascript application/x-javascript application/xml+rss application/json;  # ✅ 正确
-```
-
-**经验教训**：
-
-- Nginx 配置文件要仔细检查语法
-- `nginx -t` 测试配置
-- 修改后要重新加载 `nginx -s reload`
-
-### 4.6 HTTPS 自动跳转问题
-
-#### 问题现象
-
-- 浏览器自动添加 `https://` 前缀
-- 访问失败，显示"连接关闭"
-
-#### 问题原因
-
-- 服务器只配置了 HTTP（80 端口）
-- 浏览器尝试访问 HTTPS（443 端口）
-- 没有 SSL 证书，连接失败
-
-#### 解决方案
-
-- 手动修改 URL 为 `http://`
-- 或配置 SSL 证书支持 HTTPS
-
-**经验教训**：
-
-- 只配置 HTTP 时，访问时用 `http://`
-- 浏览器会自动尝试 HTTPS
-- 如需 HTTPS，需配置 SSL 证书
-
-### 4.7 GitHub Actions 部署问题
-
-#### 问题现象
-
-- GitHub Actions 显示绿色成功
-- 但服务器无法访问
-
-#### 问题原因
-
-- Nginx 配置语法错误导致服务异常
-- 文件部署成功但服务不可用
-
-#### 解决方案
-
-- 检查服务器 Nginx 配置
-- 修复配置文件语法错误
-- 重启 Nginx 服务
-
-**经验教训**：
-
-- GitHub Actions 成功不代表服务正常
-- 需要检查服务器实际运行状态
-- 配置文件错误会导致服务异常
-
-## 5. 注意事项和最佳实践
-
-### 5.1 API 配额管理
+### 4.1 API 配额管理
 
 #### Unsplash 免费版限制
 
@@ -730,7 +531,7 @@ for (let attempt = 1; attempt <= retries; attempt++) {
 }
 ```
 
-### 5.2 标签使用策略
+### 4.2 标签使用策略
 
 #### 中文标签处理
 
@@ -759,7 +560,7 @@ const searchQuery = englishTags.slice(0, 2).join(' ')
 - 避免关键词过长
 - 更精准的图片匹配
 
-### 5.3 降级策略
+### 4.3 降级策略
 
 #### 完善的降级机制
 
@@ -786,7 +587,7 @@ if (attempt === retries) {
 - 品牌标识
 - 技术图标
 
-### 5.4 构建集成
+### 4.4 构建集成
 
 #### 构建流程设计
 
@@ -806,7 +607,7 @@ if (attempt === retries) {
 - 已有封面的文章跳过
 - 不浪费 API 配额
 
-### 5.5 错误处理
+### 4.5 错误处理
 
 #### 完善的错误捕获
 
@@ -835,7 +636,7 @@ console.log(`✅ 更新成功`)
 - 了解处理进度
 - 统计成功/失败数量
 
-### 5.6 文件操作安全
+### 4.6 文件操作安全
 
 #### 避免重复写入
 
@@ -863,9 +664,9 @@ const newContent = processContent(content)
 fs.writeFileSync(filePath, newContent)
 ```
 
-## 6. 测试和验证
+## 5. 测试和验证
 
-### 6.1 本地测试
+### 5.1 本地测试
 
 #### 测试临时替换脚本
 
@@ -891,7 +692,7 @@ npm run generate-covers
 - 已有封面文章不被修改
 - 新文章能自动生成封面
 
-### 6.2 开发服务器测试
+### 5.2 开发服务器测试
 
 ```bash
 npm run dev
@@ -903,7 +704,7 @@ npm run dev
 - 图片链接是否正确
 - 默认图片是否生效
 
-### 6.3 生产部署测试
+### 5.3 生产部署测试
 
 #### GitHub Actions 部署
 
@@ -925,9 +726,9 @@ ls -la /var/www/blog/
 curl -I http://localhost
 ```
 
-## 7. 维护和扩展
+## 6. 维护和扩展
 
-### 7.1 定期维护
+### 6.1 定期维护
 
 #### 检查 API 使用情况
 
@@ -942,7 +743,7 @@ curl -I http://localhost
 npm run replace-covers
 ```
 
-### 7.2 功能扩展
+### 6.2 功能扩展
 
 #### 添加图片尺寸控制
 
@@ -967,7 +768,7 @@ const response = await fetch(
 `&orientation=portrait` // 竖向图片
 ```
 
-### 7.3 性能优化
+### 6.3 性能优化
 
 #### 并发控制
 
@@ -1003,7 +804,7 @@ function setCachedImage(tags, imageUrl) {
 }
 ```
 
-## 8. 常见问题解答
+## 7. 常见问题解答
 
 ### Q1: 为什么有些文章显示默认图片？
 
@@ -1052,9 +853,9 @@ function setCachedImage(tags, imageUrl) {
 "build": "node scripts/update-dates.js && next build && node ./scripts/generate-sitemap"
 ```
 
-## 9. 总结
+## 8. 总结
 
-### 9.1 实现效果
+### 8.1 实现效果
 
 ✅ **自动化**：构建时自动为新文章生成封面
 ✅ **零成本**：使用 Unsplash 免费版 API
@@ -1062,7 +863,7 @@ function setCachedImage(tags, imageUrl) {
 ✅ **智能化**：基于标签的相关性匹配
 ✅ **可靠性**：完善的错误处理和降级策略
 
-### 9.2 技术亮点
+### 8.2 技术亮点
 
 1. **双脚本设计**：临时批量更新 + 自动构建生成
 2. **智能缓存**：避免重复 API 调用
@@ -1070,7 +871,7 @@ function setCachedImage(tags, imageUrl) {
 4. **开发友好**：不浪费 API 配额
 5. **错误处理**：完善的异常捕获和日志
 
-### 9.3 项目收益
+### 8.3 项目收益
 
 - ✅ 节省 OSS 存储成本
 - ✅ 减少维护工作量
@@ -1078,7 +879,7 @@ function setCachedImage(tags, imageUrl) {
 - ✅ 增强用户体验
 - ✅ 自动化内容管理
 
-## 10. 参考资料
+## 9. 参考资料
 
 - [Unsplash API 文档](https://unsplash.com/developers)
 - [Next.js 官方文档](https://nextjs.org/)
