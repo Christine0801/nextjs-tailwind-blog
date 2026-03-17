@@ -1,7 +1,7 @@
 ---
 title: 使用 CSS variables 和Tailwind css实现主题换肤
-date: 2026-03-17 20:17:54
-lastmod: 2026-03-18 01:39:33 +0800
+date: 2024-11-12 20:17:54
+lastmod: 2026-03-18 04:30:35 +0800
 tags:
   - CSS
 draft: false

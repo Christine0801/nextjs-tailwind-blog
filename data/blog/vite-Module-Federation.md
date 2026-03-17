@@ -1,7 +1,7 @@
 ---
 title: Vite 也可以模块联邦
-date: 2026-03-17T20:17:54.000Z
-lastmod: '2026-03-18 01:39:33 +0800'
+date: 2023-07-9T20:17:54.000Z
+lastmod: 2026-03-18 04:30:35 +0800
 tags:
   - Vite
   - Module-Federation
