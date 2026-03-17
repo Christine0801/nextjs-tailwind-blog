@@ -1,7 +1,7 @@
 ---
 title: Navigator Clipboard 复制不生效
-date: 2026-03-14 22:45:12
-lastmod: 2023-02-16 22:10:35 +0800
+date: 2026-03-16 13:39:36
+lastmod: 2026-03-15 21:22:18 +0800
 tags: [前端, Bug, NavigatorAPI]
 draft: false
 summary: 使用 navigator.clipboard.writeText 完成复制功能的实现时，在本地测试没有问题，部署后报错navigator.clipboard Cannot read property ‘writeText‘ of undefined

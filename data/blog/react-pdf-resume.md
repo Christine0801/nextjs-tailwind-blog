@@ -1,7 +1,7 @@
 ---
 title: '使用 react-pdf 打造在线简历生成器'
-date: 2026-03-14 22:45:13
-lastmod: 2022-02-25 23:36:25 +0800
+date: 2026-03-16 13:39:37
+lastmod: 2026-03-15 21:22:18 +0800
 tags: [React.js]
 draft: false
 summary: 'React PDF 是一个使用 React 创建 PDF 文件的工具，支持在浏览器、移动设备和服务器上创建PDF文件。'

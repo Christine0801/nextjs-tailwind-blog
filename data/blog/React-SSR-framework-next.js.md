@@ -1,7 +1,7 @@
 ---
 title: 'React 必学SSR框架——next.js'
-date: 2026-03-14 22:45:13
-lastmod: 2022-02-25 23:36:25 +0800
+date: 2026-03-16 13:39:37
+lastmod: 2026-03-15 21:22:18 +0800
 tags: [React.js, JavaScript]
 draft: false
 summary: '​ 首先我们就回顾一下，我们到底是怎么告别了使用 php/jsp 做服务器端渲染，进入前后端分离的客户端渲染时代，又为什么重新回到了服务端渲染。'

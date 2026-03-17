@@ -1,7 +1,7 @@
 ---
 title: 'Markdown 写 PPT 是如何实现的？'
-date: 2026-03-14 22:45:11
-lastmod: 2022-08-08 16:46:10 +0800
+date: 2026-03-16 13:39:35
+lastmod: 2026-03-15 21:22:18 +0800
 tags: [Next.js]
 draft: false
 summary: '一个非常好用的工具 slidev, 可以使用 markdown 来制作演示文稿，其他类似的工具还有 Nodeppt、 marp 等，那么这类工具是如何实现的？'

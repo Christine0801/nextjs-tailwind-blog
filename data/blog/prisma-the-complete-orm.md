@@ -1,7 +1,7 @@
 ---
 title: '【译】适用于Node.js和TypeScript的完整ORM —— Prisma'
-date: 2026-03-14 22:45:13
-lastmod: 2022-02-25 23:36:25 +0800
+date: 2026-03-16 13:39:37
+lastmod: 2026-03-15 21:22:18 +0800
 tags: [ORM]
 draft: false
 summary: 'Prisma是 Node.js 和 TypeScript 的下一代 ORM。经过两年多的开发，我们很高兴分享所有 Prisma 工具已准备好投入生产！'

@@ -1,7 +1,7 @@
 ---
 title: 'Iconfont 还是不能上传，如何维护你的 Icon？'
-date: 2026-03-14 22:45:11
-lastmod: 2023-01-25 21:48:20 +0800
+date: 2026-03-16 13:39:35
+lastmod: 2026-03-15 21:22:18 +0800
 tags: [JavaScript, React.js]
 draft: false
 summary: '大多情况下，我们不必上传自己的图标，只需要在 iconfont.cn 便捷的搜索，就可以将图标加入到自己的项目图标库中，但最近工作中却遇到了比较严重的问题。'

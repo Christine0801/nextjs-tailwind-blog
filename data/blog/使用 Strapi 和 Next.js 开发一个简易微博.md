@@ -1,7 +1,7 @@
 ---
 title: 使用 Strapi 和 Next.js 开发一个简易微博
-date: 2026-03-14 22:45:17
-lastmod: 2023-01-25 11:53:30 +0800
+date: 2026-03-16 13:39:40
+lastmod: 2026-03-15 21:22:18 +0800
 tags: [React.js]
 draft: false
 summary: 本文主要介绍了使用 strapi 和 Next.js 实现了一个简易的微博，我们不必写后端，只需要后台配置便可以创建 api 接口，通过本文，我相信你对 strapi 有了一定了解。

@@ -1,7 +1,7 @@
 ---
 title: '一起来写 VS Code 插件：VS Code 版 CNode 已上线'
-date: 2026-03-14 22:45:16
-lastmod: 2022-02-26 08:24:27 +0800
+date: 2026-03-16 13:39:39
+lastmod: 2026-03-15 21:22:18 +0800
 tags: [前端, Visual Studio Code]
 draft: false
 summary: 'CNode 社区为国内最专业的 Node.js 开源技术社区，致力于 Node.js 的技术研究。本篇将通过实现 VS Code 版 CNode， 来带领大家一起熟悉 VSCode Webview。'

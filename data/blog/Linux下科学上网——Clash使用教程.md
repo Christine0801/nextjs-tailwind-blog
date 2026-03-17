@@ -1,7 +1,7 @@
 ---
 title: Linux下科学上网——Clash使用教程
-date: 2026-03-14 22:45:12
-lastmod: 2023-02-16 21:54:58 +0800
+date: 2026-03-16 13:39:36
+lastmod: 2026-03-15 21:22:18 +0800
 tags: [Linux, Clash]
 draft: false
 summary: 前言 在Windows下我们科学上网很简单，只需要下载一个VPN或者一个代理软件比如V2Ray、Clash等等，但是在Linux上却比较麻烦，这里我将为大家分享Linux终端界面上如何开启代理进行科学上网

@@ -1,7 +1,7 @@
 ---
 title: '实现一个 Code Pen：（三）10 行代码实现代码格式化'
-date: 2026-03-14 22:45:10
-lastmod: 2022-05-12 11:18:17 +0800
+date: 2026-03-16 13:39:34
+lastmod: 2026-03-15 21:22:18 +0800
 tags: [JavaScript, React.js]
 draft: false
 summary: '在上文中，我们使用 monaco-editor 结合 Next.js，打造了编辑器的功能，在本文中，我们将继续优化 monaco-editor， 使它拥有代码格式化的功能。'

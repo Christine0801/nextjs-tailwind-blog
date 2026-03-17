@@ -1,7 +1,7 @@
 ---
 title: '使用 CSS variables 和Tailwind css实现主题换肤'
-date: 2026-03-14 22:45:15
-lastmod: 2023-01-25 21:48:20 +0800
+date: 2026-03-16 13:39:39
+lastmod: 2026-03-15 21:22:18 +0800
 tags: [CSS]
 draft: false
 summary: '最近在网上看到 Tailwind Labs的实现的[换肤视频]，决定使用 Tailwind css 实现博客列表主题换肤。'

@@ -1,7 +1,7 @@
 ---
 title: '初步尝试 tauri，并且与 electron.js 对比 '
-date: 2026-03-14 22:45:14
-lastmod: 2022-02-25 23:36:25 +0800
+date: 2026-03-16 13:39:38
+lastmod: 2026-03-15 21:22:18 +0800
 tags: [前端, JavaScript]
 draft: false
 summary: 'Tauri 是一个为所有主流桌面平台构建小型、快速二进制文件的框架。开发人员可以集成任何编译成 HTML、 JS 和 CSS 的前端框架来构建他们的用户界面。'

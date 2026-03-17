@@ -1,7 +1,7 @@
 ---
 title: 'VS code 使用的代码编辑器'
-date: 2026-03-14 22:45:12
-lastmod: 2023-01-25 21:48:20 +0800
+date: 2026-03-16 13:39:36
+lastmod: 2026-03-15 21:22:18 +0800
 tags: [Visual-Studio-Code]
 draft: false
 summary: 'monaco-editor 使用入门'

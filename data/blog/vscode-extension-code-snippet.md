@@ -1,7 +1,7 @@
 ---
 title: '一起来写 VS Code 插件:为你的团队提供常用代码片段'
-date: 2026-03-14 22:45:15
-lastmod: 2022-02-26 08:24:27 +0800
+date: 2026-03-16 13:39:39
+lastmod: 2026-03-15 21:22:18 +0800
 tags: [Visual Studio Code, 前端]
 draft: false
 summary: 'VS Code 是前端开发者最佳的开发工具，你在开发中是否疲倦了从一个文件拷贝来新建一个文件呢？那么如何发布一个 VS Code 插件？'

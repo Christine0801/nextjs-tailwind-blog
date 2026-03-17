@@ -1,7 +1,7 @@
 ---
 title: 使用 Vitest 和 React Testing Library 给 Next.js 应用单元测试
-date: 2026-03-14 22:45:17
-lastmod: 2023-01-25 11:53:30 +0800
+date: 2026-03-16 13:39:40
+lastmod: 2026-03-15 21:22:18 +0800
 tags: [前端, React.js]
 draft: false
 summary: 在本文中我们给 Next.js 应用配置了 vitest 和 React-testing-library 测试环境，这套配置同样适用于其他 react 项目，只需要依照步骤配置即可。

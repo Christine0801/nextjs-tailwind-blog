@@ -1,7 +1,7 @@
 ---
 title: '微信排版工具新选择'
-date: 2026-03-14 22:45:15
-lastmod: 2023-01-25 21:48:20 +0800
+date: 2026-03-16 13:39:38
+lastmod: 2026-03-15 21:22:18 +0800
 tags: [JavaScript, React.js, 微信]
 draft: false
 summary: '我写了一个微信排版编辑器，使用 MDX，可自定义组件、样式、生成二维码、代码 diff 高亮，可导出 markdown 和 PDF。'
