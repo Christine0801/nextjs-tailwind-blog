@@ -1,7 +1,7 @@
 ---
 title: 如何避免 React hooks 闭包陷阱？
-date: 2026-03-14 22:45:17
-lastmod: 2023-01-25 11:53:30 +0800
+date: 2026-03-16 13:39:41
+lastmod: 2026-03-15 21:22:18 +0800
 tags: [React.js, 掘金·金石计划]
 draft: false
 summary: 有时候我们使用了useMemo useCallback 来优化性能，这些函数与外围的 state 形成闭包，导致缓存函数中获取到的 state 不是最新的值，这就是闭包陷阱。

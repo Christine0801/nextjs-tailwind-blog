@@ -1,7 +1,7 @@
 ---
 title: '[TDD] 如何测试 React 异步组件？'
-date: 2026-03-14 22:45:14
-lastmod: 2022-02-25 23:36:25 +0800
+date: 2026-03-16 13:39:38
+lastmod: 2026-03-15 21:22:18 +0800
 tags: [React.js, 测试]
 draft: false
 summary: '前言 本文承接上文 如何测试驱动开发 React 组件？，这次我将继续使用 @testing-library/react 来测试我们的 React 应用，并简要简要说明如何测试异步组件。'

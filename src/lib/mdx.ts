@@ -131,6 +131,7 @@ export async function getAllFilesFrontMatter(folder: 'blog') {
         ...frontmatter,
         slug: formatSlug(fileName),
         date: frontmatter.date ? new Date(frontmatter.date).toISOString() : null,
+        lastmod: frontmatter.lastmod ? new Date(frontmatter.lastmod).toISOString() : null,
       })
     }
   })

@@ -1,7 +1,7 @@
 ---
 title: '一起来写 VS Code 插件：实现一个翻译插件'
-date: 2026-03-14 22:45:11
-lastmod: 2022-03-04 10:50:46 +0800
+date: 2026-03-16 13:39:35
+lastmod: 2026-03-15 21:22:18 +0800
 tags: [Visual Studio Code, JavaScript]
 draft: false
 summary: '本文将通过实现一个翻译插件实例的方式来熟悉 VS Code 插件'

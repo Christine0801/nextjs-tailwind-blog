@@ -1,7 +1,7 @@
 ---
 title: '实现一个 Code Pen：（五）白嫖云数据库'
-date: 2026-03-14 22:45:10
-lastmod: 2022-05-12 11:18:17 +0800
+date: 2026-03-16 13:39:34
+lastmod: 2026-03-15 21:22:18 +0800
 tags: [JavaScript, React.js]
 draft: false
 summary: '本篇主要介绍如何使用 uniapp 中的云函数和云数据库，并且通过云函数 URL 化，来给外部应用访问。'

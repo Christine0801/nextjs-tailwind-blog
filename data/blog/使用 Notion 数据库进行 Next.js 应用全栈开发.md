@@ -1,7 +1,7 @@
 ---
 title: 使用 Notion 数据库进行 Next.js 应用全栈开发
-date: 2026-03-14 22:45:16
-lastmod: 2023-01-25 11:53:30 +0800
+date: 2026-03-16 13:39:40
+lastmod: 2026-03-15 21:22:18 +0800
 tags: [React.js, 数据库]
 draft: false
 summary: 今天我就得带大家来白嫖一下 Notion 数据库，让我们的个人应用轻松上线，本文记录了利用 Next.js 和 Notion API 编写了一个前端刷题网站的全过程。

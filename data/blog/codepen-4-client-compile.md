@@ -1,7 +1,7 @@
 ---
 title: '实现一个 Code Pen：（四）浏览器编译代码'
-date: 2026-03-14 22:45:10
-lastmod: 2022-05-12 11:18:17 +0800
+date: 2026-03-16 13:39:34
+lastmod: 2026-03-15 21:22:18 +0800
 tags: [JavaScript, React.js]
 draft: false
 summary: '前面的文章中，我们配置好了编辑器，实现了 css、html、js 的编辑，现在我们需要做代码实时运行的功能了，并且可以直接写 less、scss、JavaScript、typescript。'

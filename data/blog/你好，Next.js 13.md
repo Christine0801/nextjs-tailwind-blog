@@ -1,7 +1,7 @@
 ---
 title: 你好，Next.js 13
-date: 2026-03-14 22:45:16
-lastmod: 2023-01-25 11:53:30 +0800
+date: 2026-03-16 13:39:40
+lastmod: 2026-03-15 21:22:18 +0800
 tags: [Turbopack, React.js]
 draft: false
 summary: 上周发布了 Next.js 的一个全新的版本 13，它带来了全新的理念（server component），作为一名 Next.js 的爱好者，我们有必要重新学习和认识下它。

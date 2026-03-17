@@ -1,7 +1,7 @@
 ---
 title: 使用 Next.js、 Prisma 和 PostgreSQL 全栈开发视频网站
-date: 2026-03-14 22:45:16
-lastmod: 2023-01-25 11:53:30 +0800
+date: 2026-03-16 13:39:40
+lastmod: 2026-03-15 21:22:18 +0800
 tags: [前端, React.js]
 draft: false
 summary: 本文将以实现一个视频网站为例，介绍 Next.js 和 Prisma 开发的全过程，prisma 对于 Next.js 来说，可谓是如虎添翼，有了它们，我们前端工程师轻松步入了全栈开发。

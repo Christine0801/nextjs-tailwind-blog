@@ -1,7 +1,7 @@
 ---
 title: '实现一个 Code Pen：（二）在 Next.js 中使用 Monaco Editor'
-date: 2026-03-14 22:45:10
-lastmod: 2022-05-12 11:18:17 +0800
+date: 2026-03-16 13:39:34
+lastmod: 2026-03-15 21:22:18 +0800
 tags: [JavaScript, React.js]
 draft: false
 summary: 'Monaco Editor 是 VS Code 中使用的开源代码编辑器， 拥有代码高亮和代码自动补全的功能，本文介绍 Monaco Editor 的加载方式和 React 组件封装'
