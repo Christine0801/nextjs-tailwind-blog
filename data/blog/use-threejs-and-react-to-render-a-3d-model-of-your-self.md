@@ -1,7 +1,7 @@
 ---
 title: 如何使用 react 和 three.js 在网站渲染自己的3D模型
-date: 2026-03-17 20:17:54
-lastmod: 2026-03-18 01:39:33 +0800
+date: 2024-12-17 20:17:54
+lastmod: 2026-03-18 04:30:35 +0800
 tags:
   - JavaScript
   - React.js
