@@ -1,15 +1,17 @@
 ---
-title: '一起来写 VS Code 插件：VS Code 版 CNode 已上线'
-date: 2026-03-16 13:39:39
-lastmod: 2026-03-15 21:22:18 +0800
-tags: [前端, Visual Studio Code]
+title: 一起来写 VS Code 插件：VS Code 版 CNode 已上线
+date: 2026-03-17 20:17:54
+lastmod: 2026-03-18 01:39:33 +0800
+tags:
+  - 前端
+  - Visual Studio Code
 draft: false
-summary: 'CNode 社区为国内最专业的 Node.js 开源技术社区，致力于 Node.js 的技术研究。本篇将通过实现 VS Code 版 CNode， 来带领大家一起熟悉 VSCode Webview。'
+summary: "CNode\_社区为国内最专业的 Node.js 开源技术社区，致力于 Node.js 的技术研究。本篇将通过实现 VS Code 版 CNode， 来带领大家一起熟悉 VSCode Webview。"
 images:
-  [
-    'https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8445f5813cb041998924400c705fd6b3~tplv-k3u1fbpfcp-watermark.image?',
-  ]
-authors: ['default']
+  - >-
+    https://images.unsplash.com/photo-1516101922849-2bf0be616449?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTgzNTJ8MHwxfHNlYXJjaHwxfHxWaXN1YWwlMjBTdHVkaW8lMjBDb2RlfGVufDB8MHx8fDE3NzM3NzY2NjF8MA&ixlib=rb-4.1.0&q=80&w=1080
+authors:
+  - default
 layout: PostLayout
 ---
 

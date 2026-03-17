@@ -7,10 +7,12 @@
     "dev": "next dev",
     "new-post": "node scripts/new-post.js",
     "update-dates": "node scripts/update-dates.js",
-    "build": "node scripts/update-dates.js && next build && node ./scripts/generate-sitemap",
+    "build": "node scripts/update-dates.js && node scripts/generate-covers.js && next build && node ./scripts/generate-sitemap",
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir src --dir scripts",
+    "replace-covers": "node scripts/replace-covers.js",
+    "generate-covers": "node scripts/generate-covers.js",
     "prepare": "husky install"
   },
   "dependencies": {

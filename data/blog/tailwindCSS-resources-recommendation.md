@@ -1,12 +1,17 @@
 ---
-title: 'TailwindCSS 资源推荐'
-date: 2026-03-16 13:39:38
-lastmod: 2026-03-15 21:22:18 +0800
-tags: [前端, GitHub]
+title: TailwindCSS 资源推荐
+date: 2026-03-17 20:17:54
+lastmod: 2026-03-18 01:39:33 +0800
+tags:
+  - 前端
+  - GitHub
 draft: false
-summary: 'TailwindCSS 发布了 3.0， 功能也越来越好用，那么是否有与之相关的组件库呢 ？本文是我将推荐我个人认为比较好用的资源。'
-images: []
-authors: ['default']
+summary: TailwindCSS 发布了 3.0， 功能也越来越好用，那么是否有与之相关的组件库呢 ？本文是我将推荐我个人认为比较好用的资源。
+images:
+  - >-
+    https://images.unsplash.com/photo-1654277041218-84424c78f0ae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTgzNTJ8MHwxfHNlYXJjaHwxfHxHaXRIdWJ8ZW58MHwwfHx8MTc3Mzc3NjY2N3ww&ixlib=rb-4.1.0&q=80&w=1080
+authors:
+  - default
 layout: PostLayout
 ---
 

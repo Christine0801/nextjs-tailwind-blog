@@ -1,12 +1,16 @@
 ---
-title: '使用 CSS variables 和Tailwind css实现主题换肤'
-date: 2026-03-16 13:39:39
-lastmod: 2026-03-15 21:22:18 +0800
-tags: [CSS]
+title: 使用 CSS variables 和Tailwind css实现主题换肤
+date: 2026-03-17 20:17:54
+lastmod: 2026-03-18 01:39:33 +0800
+tags:
+  - CSS
 draft: false
 summary: '最近在网上看到 Tailwind Labs的实现的[换肤视频]，决定使用 Tailwind css 实现博客列表主题换肤。'
-images: []
-authors: ['default']
+images:
+  - >-
+    https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTgzNTJ8MHwxfHNlYXJjaHwxfHxDU1N8ZW58MHwwfHx8MTc3Mzc3NjY1Nnww&ixlib=rb-4.1.0&q=80&w=1080
+authors:
+  - default
 layout: PostLayout
 ---
 

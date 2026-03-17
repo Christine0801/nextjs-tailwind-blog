@@ -1,14 +1,17 @@
 ---
 title: 如何使用 react 和 three.js 在网站渲染自己的3D模型
-date: 2026-03-16 13:39:39
-lastmod: 2026-03-15 21:22:18 +0800
-tags: [JavaScript, React.js]
+date: 2026-03-17 20:17:54
+lastmod: 2026-03-18 01:39:33 +0800
+tags:
+  - JavaScript
+  - React.js
 draft: false
-summary: 在本文中，我将介绍如何在 react 项目中使用 react-three-fiber 创建的一个3D 软件程序，配置3D 参数(如 Blender 或 Maya ) 。在本文结束时，您将能够在您的网站上渲染一个3D模型 (gltf / glb)。
+summary: >-
+  在本文中，我将介绍如何在 react 项目中使用 react-three-fiber 创建的一个3D 软件程序，配置3D 参数(如 Blender 或
+  Maya ) 。在本文结束时，您将能够在您的网站上渲染一个3D模型 (gltf / glb)。
 images:
-  [
-    https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/03e816da47944c2da6ed00f76e0a7419~tplv-k3u1fbpfcp-zoom-crop-mark:3024:3024:3024:1702.awebp?,
-  ]
+  - >-
+    https://images.unsplash.com/photo-1649451844931-57e22fc82de3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTgzNTJ8MHwxfHNlYXJjaHwxfHxKYXZhU2NyaXB0JTIwUmVhY3QuanN8ZW58MHwwfHx8MTc3Mzc3NjY1OHww&ixlib=rb-4.1.0&q=80&w=1080
 layout: PostLayout
 ---
 

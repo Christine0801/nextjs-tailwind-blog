@@ -1,15 +1,16 @@
 ---
 title: '[油猴脚本]文章拷贝助手，文章一键拷贝到微信公众平台'
-date: 2026-03-16 13:39:38
-lastmod: 2026-03-15 21:22:18 +0800
-tags: [JavaScript]
+date: 2026-03-17 20:17:54
+lastmod: 2026-03-18 01:39:33 +0800
+tags:
+  - JavaScript
 draft: false
-summary: '为什么要写这个脚本 最近开了个前端公众号，需要推送一些优质的文章，但由于时间的关系，原创内容太少，常规的做法是转载一些优秀的文章到自己的公众号。'
+summary: 为什么要写这个脚本 最近开了个前端公众号，需要推送一些优质的文章，但由于时间的关系，原创内容太少，常规的做法是转载一些优秀的文章到自己的公众号。
 images:
-  [
-    'https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7f64568e1fa049fa948442def158b138~tplv-k3u1fbpfcp-watermark.image?',
-  ]
-authors: ['default']
+  - >-
+    https://images.unsplash.com/photo-1667372393086-9d4001d51cf1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTgzNTJ8MHwxfHNlYXJjaHwxfHxKYXZhU2NyaXB0fGVufDB8MHx8fDE3NzM3NzY2NTR8MA&ixlib=rb-4.1.0&q=80&w=1080
+authors:
+  - default
 layout: PostLayout
 ---
 

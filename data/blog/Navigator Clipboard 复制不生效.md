@@ -1,12 +1,20 @@
 ---
 title: Navigator Clipboard 复制不生效
-date: 2026-03-16 13:39:36
-lastmod: 2026-03-15 21:22:18 +0800
-tags: [前端, Bug, NavigatorAPI]
+date: 2026-03-17 20:17:53
+lastmod: 2026-03-18 01:39:33 +0800
+tags:
+  - 前端
+  - Bug
+  - NavigatorAPI
 draft: false
-summary: 使用 navigator.clipboard.writeText 完成复制功能的实现时，在本地测试没有问题，部署后报错navigator.clipboard Cannot read property ‘writeText‘ of undefined
-images: https://my-markdown-image-host.oss-cn-shanghai.aliyuncs.com/image-20230216215633874.png?
-authors: ['default']
+summary: >-
+  使用 navigator.clipboard.writeText 完成复制功能的实现时，在本地测试没有问题，部署后报错navigator.clipboard
+  Cannot read property ‘writeText‘ of undefined
+images:
+  - >-
+    https://images.unsplash.com/photo-1595068982550-71f18a3dbd47?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTgzNTJ8MHwxfHNlYXJjaHwxfHxCdWclMjBOYXZpZ2F0b3JBUEl8ZW58MHwwfHx8MTc3Mzc3NjY3OXww&ixlib=rb-4.1.0&q=80&w=1080
+authors:
+  - default
 layout: PostLayout
 ---
 

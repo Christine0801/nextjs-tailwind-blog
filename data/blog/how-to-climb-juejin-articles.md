@@ -1,15 +1,20 @@
 ---
-title: '如何盘点出掘金的年度高赞文章？'
-date: 2026-03-16 13:39:34
-lastmod: 2026-03-15 21:22:18 +0800
-tags: [Node.js, 掘金社区, 前端]
+title: 如何盘点出掘金的年度高赞文章？
+date: 2026-03-17 20:17:53
+lastmod: 2026-03-18 01:39:33 +0800
+tags:
+  - Node.js
+  - 掘金社区
+  - 前端
 draft: false
-summary: '我的新年 Flag ，就是掘金等级到达 V4，而对于绝大多数读者来说，新年 Flag 中是否有“学习”这一项呢，对于我来说，我也是，于是就有萌生一个想法，我想统计出掘金的年度高赞文章。'
+summary: >-
+  我的新年 Flag ，就是掘金等级到达 V4，而对于绝大多数读者来说，新年 Flag
+  中是否有“学习”这一项呢，对于我来说，我也是，于是就有萌生一个想法，我想统计出掘金的年度高赞文章。
 images:
-  [
-    'https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f819a7d88075406c819cd5b3e22c59d2~tplv-k3u1fbpfcp-watermark.image?',
-  ]
-authors: ['default']
+  - >-
+    https://images.unsplash.com/photo-1619410283995-43d9134e7656?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTgzNTJ8MHwxfHNlYXJjaHwxfHxOb2RlLmpzfGVufDB8MHx8fDE3NzM3NzY2ODR8MA&ixlib=rb-4.1.0&q=80&w=1080
+authors:
+  - default
 layout: PostLayout
 ---
 
