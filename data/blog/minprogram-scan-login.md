@@ -1,15 +1,19 @@
 ---
 title: ' 用小程序来实现扫码登录'
-date: 2026-03-16 13:39:36
-lastmod: 2026-03-15 21:22:18 +0800
-tags: [React.js, uni-app]
+date: 2026-03-17 20:17:53
+lastmod: 2026-03-18 01:39:33 +0800
+tags:
+  - React.js
+  - uni-app
 draft: false
-summary: '在 web 开发中，少不了用户系统，开发者需要开发注册登录这些重复的功能，而对于用户来说，要要注册才可以使用，往往会不愿意，因为我们有太多的账号和密码了，而现在可以使用小程序来实现扫码登录。'
+summary: >-
+  在 web
+  开发中，少不了用户系统，开发者需要开发注册登录这些重复的功能，而对于用户来说，要要注册才可以使用，往往会不愿意，因为我们有太多的账号和密码了，而现在可以使用小程序来实现扫码登录。
 images:
-  [
-    'https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f524859dfdd549b9836e7f37b39425b5~tplv-k3u1fbpfcp-zoom-crop-mark:3024:3024:3024:1702.awebp?',
-  ]
-authors: ['default']
+  - >-
+    https://images.unsplash.com/photo-1758582268054-d373f6cb24a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTgzNTJ8MHwxfHNlYXJjaHwxfHxSZWFjdC5qcyUyMHVuaS1hcHB8ZW58MHwwfHx8MTc3Mzc3NjY3Nnww&ixlib=rb-4.1.0&q=80&w=1080
+authors:
+  - default
 layout: PostLayout
 ---
 

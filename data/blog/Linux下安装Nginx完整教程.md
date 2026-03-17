@@ -1,12 +1,16 @@
 ---
 title: Linux下安装Nginx完整教程
-date: 2026-03-16 13:39:35
-lastmod: 2026-03-15 21:22:18 +0800
-tags: [Linux, Nginx]
+date: 2026-03-17 20:17:53
+lastmod: 2026-03-18 01:39:33 +0800
+tags:
+  - Linux
+  - Nginx
 draft: false
 summary: 在Linux下安装Nginx教程，这里以CentOS举例，同时安装过程中所会出现的一些问题，也会附带有解释和解决办法
-images: https://th.bing.com/th/id/OIP.oyOF3Mvy-oGDOV6oOilj1wHaDt?pid=ImgDet&rs=1?
-authors: ['default']
+images:
+  - /static/favicons/android-chrome-512x512.png
+authors:
+  - default
 layout: PostLayout
 ---
 

@@ -1,12 +1,18 @@
 ---
 title: 用 TailwindCSS 打造美好祝福：给大家送上新年祝福的 demo
-date: 2026-03-16 13:39:35
-lastmod: 2026-03-15 21:22:18 +0800
-tags: [tailwindcss]
+date: 2026-03-17 20:17:53
+lastmod: 2026-03-18 01:39:33 +0800
+tags:
+  - tailwindcss
 draft: false
-summary: 前几天，群里有有伙伴问，在Next.js中，该使用哪个UI框架？我强烈推荐 tailwindcss， 因为你不再需要写 CSS 代码了，这 2 天还录制了一个视频，包括录屏、录音、剪辑、动画等，花费蛮多时间，在视频最后，借一个 demo 给大家拜年了，祝您在新的一年中，事业蒸蒸日上，幸福美满，健康长久。
-images: https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/42b85073f04a4eefa5281cf1c737cbae~tplv-k3u1fbpfcp-watermark.image?
-authors: ['default']
+summary: >-
+  前几天，群里有有伙伴问，在Next.js中，该使用哪个UI框架？我强烈推荐 tailwindcss， 因为你不再需要写 CSS 代码了，这 2
+  天还录制了一个视频，包括录屏、录音、剪辑、动画等，花费蛮多时间，在视频最后，借一个 demo
+  给大家拜年了，祝您在新的一年中，事业蒸蒸日上，幸福美满，健康长久。
+images:
+  - /static/favicons/android-chrome-512x512.png
+authors:
+  - default
 layout: PostLayout
 ---
 

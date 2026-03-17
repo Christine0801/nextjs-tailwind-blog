@@ -1,15 +1,17 @@
 ---
 title: '一起来写 VS Code 插件:为你的团队提供常用代码片段'
-date: 2026-03-16 13:39:39
-lastmod: 2026-03-15 21:22:18 +0800
-tags: [Visual Studio Code, 前端]
+date: 2026-03-17 20:17:54
+lastmod: 2026-03-18 01:39:33 +0800
+tags:
+  - Visual Studio Code
+  - 前端
 draft: false
-summary: 'VS Code 是前端开发者最佳的开发工具，你在开发中是否疲倦了从一个文件拷贝来新建一个文件呢？那么如何发布一个 VS Code 插件？'
+summary: VS Code 是前端开发者最佳的开发工具，你在开发中是否疲倦了从一个文件拷贝来新建一个文件呢？那么如何发布一个 VS Code 插件？
 images:
-  [
-    'https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2487fd3ca81e43c4af9687d9d430cf30~tplv-k3u1fbpfcp-watermark.image?',
-  ]
-authors: ['default']
+  - >-
+    https://images.unsplash.com/photo-1516101922849-2bf0be616449?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTgzNTJ8MHwxfHNlYXJjaHwxfHxWaXN1YWwlMjBTdHVkaW8lMjBDb2RlfGVufDB8MHx8fDE3NzM3NzY2NjF8MA&ixlib=rb-4.1.0&q=80&w=1080
+authors:
+  - default
 layout: PostLayout
 ---
 

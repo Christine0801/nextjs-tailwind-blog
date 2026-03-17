@@ -1,12 +1,19 @@
 ---
 title: 我在工作中使用 git 的几个技巧
-date: 2026-03-16 13:39:41
-lastmod: 2026-03-15 21:22:18 +0800
-tags: [Git, 掘金·金石计划]
+date: 2026-03-17 20:17:55
+lastmod: 2026-03-18 01:39:33 +0800
+tags:
+  - Git
+  - 掘金·金石计划
 draft: false
-summary: Git 是每个程序员的必备技能，良好的 Git 提交习惯，不但可以让代码阅读更清晰，还可以提高我们的我们的工作效率，接下来我将分享我在工作中关于 Git 的使用经验，或许对你有帮助。
-images: https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6fce639f5d1b4e0794b26f21326ed3f3~tplv-k3u1fbpfcp-watermark.image?
-authors: ['default']
+summary: >-
+  Git 是每个程序员的必备技能，良好的 Git 提交习惯，不但可以让代码阅读更清晰，还可以提高我们的我们的工作效率，接下来我将分享我在工作中关于 Git
+  的使用经验，或许对你有帮助。
+images:
+  - >-
+    https://images.unsplash.com/photo-1556075798-4825dfaaf498?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTgzNTJ8MHwxfHNlYXJjaHwxfHxHaXR8ZW58MHwwfHx8MTc3Mzc3NjY0OXww&ixlib=rb-4.1.0&q=80&w=1080
+authors:
+  - default
 layout: PostLayout
 ---
 

@@ -1,15 +1,18 @@
 ---
-title: '微信排版工具新选择'
-date: 2026-03-16 13:39:38
-lastmod: 2026-03-15 21:22:18 +0800
-tags: [JavaScript, React.js, 微信]
+title: 微信排版工具新选择
+date: 2026-03-17 20:17:54
+lastmod: 2026-03-18 01:39:33 +0800
+tags:
+  - JavaScript
+  - React.js
+  - 微信
 draft: false
-summary: '我写了一个微信排版编辑器，使用 MDX，可自定义组件、样式、生成二维码、代码 diff 高亮，可导出 markdown 和 PDF。'
+summary: 我写了一个微信排版编辑器，使用 MDX，可自定义组件、样式、生成二维码、代码 diff 高亮，可导出 markdown 和 PDF。
 images:
-  [
-    https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/714602a53c704bcabcc2703ca532791b~tplv-k3u1fbpfcp-zoom-crop-mark:3024:3024:3024:1702.awebp?,
-  ]
-authors: ['default']
+  - >-
+    https://images.unsplash.com/photo-1649451844931-57e22fc82de3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTgzNTJ8MHwxfHNlYXJjaHwxfHxKYXZhU2NyaXB0JTIwUmVhY3QuanN8ZW58MHwwfHx8MTc3Mzc3NjY1OHww&ixlib=rb-4.1.0&q=80&w=1080
+authors:
+  - default
 layout: PostLayout
 ---
 

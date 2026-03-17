@@ -1,15 +1,17 @@
 ---
-title: '盘点那些好玩有趣的 VSCODE 插件'
-date: 2026-03-16 13:39:39
-lastmod: 2026-03-15 21:22:18 +0800
-tags: [前端, Visual Studio Code]
+title: 盘点那些好玩有趣的 VSCODE 插件
+date: 2026-03-17 20:17:54
+lastmod: 2026-03-18 01:39:33 +0800
+tags:
+  - 前端
+  - Visual Studio Code
 draft: false
-summary: '“工欲善其事，必先利其器！” vscode 作为前端开发的重要工具，其插件能大幅提升战斗力，精心收集12+插件，总有几款你还未曾拥有。'
+summary: “工欲善其事，必先利其器！” vscode 作为前端开发的重要工具，其插件能大幅提升战斗力，精心收集12+插件，总有几款你还未曾拥有。
 images:
-  [
-    'https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5f201f6369a842738b0951b0a98a5915~tplv-k3u1fbpfcp-watermark.image?',
-  ]
-authors: ['default']
+  - >-
+    https://images.unsplash.com/photo-1516101922849-2bf0be616449?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTgzNTJ8MHwxfHNlYXJjaHwxfHxWaXN1YWwlMjBTdHVkaW8lMjBDb2RlfGVufDB8MHx8fDE3NzM3NzY2NjF8MA&ixlib=rb-4.1.0&q=80&w=1080
+authors:
+  - default
 layout: PostLayout
 ---
 

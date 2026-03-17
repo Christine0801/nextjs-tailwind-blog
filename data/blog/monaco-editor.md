@@ -1,15 +1,16 @@
 ---
-title: 'VS code 使用的代码编辑器'
-date: 2026-03-16 13:39:36
-lastmod: 2026-03-15 21:22:18 +0800
-tags: [Visual-Studio-Code]
+title: VS code 使用的代码编辑器
+date: 2026-03-17 20:17:53
+lastmod: 2026-03-18 01:39:33 +0800
+tags:
+  - Visual-Studio-Code
 draft: false
-summary: 'monaco-editor 使用入门'
+summary: monaco-editor 使用入门
 images:
-  [
-    'https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7fd86ebea36a4ea5af29c54db38f52d7~tplv-k3u1fbpfcp-watermark.image?',
-  ]
-authors: ['default']
+  - >-
+    https://images.unsplash.com/photo-1658274474851-fda40d4c309d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTgzNTJ8MHwxfHNlYXJjaHwxfHxWaXN1YWwtU3R1ZGlvLUNvZGV8ZW58MHwwfHx8MTc3Mzc3NjY3N3ww&ixlib=rb-4.1.0&q=80&w=1080
+authors:
+  - default
 layout: PostLayout
 ---
 

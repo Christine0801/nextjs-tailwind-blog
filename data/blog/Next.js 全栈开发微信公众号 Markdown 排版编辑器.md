@@ -1,12 +1,17 @@
 ---
 title: Next.js 全栈开发微信公众号 Markdown 排版编辑器
-date: 2026-03-16 13:39:36
-lastmod: 2026-03-15 21:22:18 +0800
-tags: [React.js, 前端, Markdown]
+date: 2026-03-17 20:17:53
+lastmod: 2026-03-18 01:39:33 +0800
+tags:
+  - React.js
+  - 前端
+  - Markdown
 draft: false
 summary: 阅读本文，你将收获： 学会使用 Monaco Editor 开发多文件编辑器；学会使用 mdx 在线编译 ；实现剪切板的劫持；学会使用云函数和云数据写接口；
-images: https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/722aa1c1cef346aba9cc4db65319fb69~tplv-k3u1fbpfcp-watermark.image?
-authors: ['default']
+images:
+  - /static/favicons/android-chrome-512x512.png
+authors:
+  - default
 layout: PostLayout
 ---
 

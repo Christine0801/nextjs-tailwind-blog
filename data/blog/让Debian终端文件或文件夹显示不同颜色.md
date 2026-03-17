@@ -1,12 +1,19 @@
 ---
 title: 让Debian终端文件显示不同颜色
-date: 2026-03-16 13:39:41
-lastmod: 2026-03-15 21:22:18 +0800
-tags: [Linux, Terminal, Debian]
+date: 2026-03-17 20:17:55
+lastmod: 2026-03-18 01:39:33 +0800
+tags:
+  - Linux
+  - Terminal
+  - Debian
 draft: false
-summary: 在我们使用Linux不同发行版时，如CentOS、Ubuntu或者Debian，我们使用ls命令，有时候会发现列举出来的文件都会带有颜色，那如果没有颜色就需要配置一下。
-images: https://my-markdown-image-host.oss-cn-shanghai.aliyuncs.com/image-20230215164529241.png?
-authors: ['default']
+summary: >-
+  在我们使用Linux不同发行版时，如CentOS、Ubuntu或者Debian，我们使用ls命令，有时候会发现列举出来的文件都会带有颜色，那如果没有颜色就需要配置一下。
+images:
+  - >-
+    https://images.unsplash.com/photo-1629654297299-c8506221ca97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTgzNTJ8MHwxfHNlYXJjaHwxfHxMaW51eCUyMFRlcm1pbmFsfGVufDB8MHx8fDE3NzM3NzY2NTJ8MA&ixlib=rb-4.1.0&q=80&w=1080
+authors:
+  - default
 layout: PostLayout
 ---
 

@@ -1,11 +1,17 @@
 ---
-title: '我用 nodejs 爬了一万多张小姐姐壁纸'
-date: 2026-03-16 13:39:36
-lastmod: 2026-03-15 21:22:18 +0800
-tags: [Node.js]
+title: 我用 nodejs 爬了一万多张小姐姐壁纸
+date: 2026-03-17 20:17:53
+lastmod: 2026-03-18 01:39:33 +0800
+tags:
+  - Node.js
 draft: false
-summary: '本文主要讲述如何使用 nodejs 爬虫，以及如何用nodejs 下载图片。为什么要下载这么多图片呢？ 前几天使用 uniapp + uniCloud 免费部署了一个壁纸小程序。'
+summary: >-
+  本文主要讲述如何使用 nodejs 爬虫，以及如何用nodejs 下载图片。为什么要下载这么多图片呢？ 前几天使用 uniapp + uniCloud
+  免费部署了一个壁纸小程序。
 layout: PostLayout
+images:
+  - >-
+    https://images.unsplash.com/photo-1619410283995-43d9134e7656?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTgzNTJ8MHwxfHNlYXJjaHwxfHxOb2RlLmpzfGVufDB8MHx8fDE3NzM3NzY2ODR8MA&ixlib=rb-4.1.0&q=80&w=1080
 ---
 
 ## 前言

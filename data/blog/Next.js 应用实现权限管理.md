@@ -1,12 +1,17 @@
 ---
 title: Next.js 应用实现权限管理
-date: 2026-03-16 13:39:36
-lastmod: 2026-03-15 21:22:18 +0800
-tags: [React.js]
+date: 2026-03-17 20:17:53
+lastmod: 2026-03-18 01:39:33 +0800
+tags:
+  - React.js
 draft: false
-summary: 今天我们就聊一聊权限系统的设计与实现，要在网站中实现复杂的权限管理对应新手来说，这可能会是比较困难的，但权限系统是软件中不可或缺的部分，我们只要掌握一个套路，就会变得非常简单，一起来看看吧！
-images: https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1e6342307e9244edb7650de27adf8eda~tplv-k3u1fbpfcp-watermark.image?
-authors: ['default']
+summary: >-
+  今天我们就聊一聊权限系统的设计与实现，要在网站中实现复杂的权限管理对应新手来说，这可能会是比较困难的，但权限系统是软件中不可或缺的部分，我们只要掌握一个套路，就会变得非常简单，一起来看看吧！
+images:
+  - >-
+    https://images.unsplash.com/photo-1633356122544-f134324a6cee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTgzNTJ8MHwxfHNlYXJjaHwxfHxSZWFjdC5qc3xlbnwwfDB8fHwxNzczNzc2NjczfDA&ixlib=rb-4.1.0&q=80&w=1080
+authors:
+  - default
 layout: PostLayout
 ---
 
