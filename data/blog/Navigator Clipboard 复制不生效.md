@@ -12,7 +12,7 @@ summary: >-
   Cannot read property ‘writeText‘ of undefined
 images:
   - >-
-    static/images/Navigator-clipboard-writerText-undefined.png
+    /static/images/Navigator-clipboard-writerText-undefined.png
 authors:
   - default
 layout: PostLayout
