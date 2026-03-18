@@ -9,7 +9,7 @@ tags:
 draft: false
 summary: 阅读本文，你将收获： 学会使用 Monaco Editor 开发多文件编辑器；学会使用 mdx 在线编译 ；实现剪切板的劫持；学会使用云函数和云数据写接口；
 images:
-  - /static/favicons/android-chrome-512x512.png
+  - /static/images/20220315184336.png
 authors:
   - default
 layout: PostLayout

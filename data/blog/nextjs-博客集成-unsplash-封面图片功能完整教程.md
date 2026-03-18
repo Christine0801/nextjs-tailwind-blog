@@ -5,7 +5,7 @@ lastmod: 2026-03-18 05:29:01
 tags: [UnplashAPI, Automation, Technical Tutorial, Image Processing, Blog Development, Next.js]
 draft: false
 summary: ''
-images: []
+images: [/static/images/00658PICz3N2Jp7daf268_PIC2018_PIC2018.jpg]
 authors: ['default']
 layout: PostLayout
 ---
