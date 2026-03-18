@@ -8,7 +8,7 @@ tags:
 draft: false
 summary: 在Linux下安装Nginx教程，这里以CentOS举例，同时安装过程中所会出现的一些问题，也会附带有解释和解决办法
 images:
-  - /static/favicons/android-chrome-512x512.png
+  - /static/images/Nginx.png
 authors:
   - default
 layout: PostLayout

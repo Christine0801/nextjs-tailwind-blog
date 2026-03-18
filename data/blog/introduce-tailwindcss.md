@@ -10,7 +10,7 @@ summary: >-
   天还录制了一个视频，包括录屏、录音、剪辑、动画等，花费蛮多时间，在视频最后，借一个 demo
   给大家拜年了，祝您在新的一年中，事业蒸蒸日上，幸福美满，健康长久。
 images:
-  - /static/favicons/android-chrome-512x512.png
+  - /static/images/tailwindcss.png
 authors:
   - default
 layout: PostLayout
