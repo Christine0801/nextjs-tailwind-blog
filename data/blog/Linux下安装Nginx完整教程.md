@@ -1,7 +1,7 @@
 ---
 title: Linux下安装Nginx完整教程
 date: 2024-08-18 20:17:53
-lastmod: 2026-03-18 04:30:35 +0800
+lastmod: 2026-03-19 14:16:16
 tags:
   - Linux
   - Nginx

@@ -1,7 +1,7 @@
 ---
 title: 用 TailwindCSS 打造美好祝福：给大家送上新年祝福的 demo
 date: 2025-07-17 20:17:53
-lastmod: 2026-03-18 04:30:35 +0800
+lastmod: 2026-03-19 14:16:16
 tags:
   - tailwindcss
 draft: false

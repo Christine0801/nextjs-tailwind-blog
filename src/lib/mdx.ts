@@ -105,6 +105,7 @@ export async function getFileBySlug<T>(type: 'authors' | 'blog', slug: string | 
       fileName: fs.existsSync(mdxPath) ? `${slug}.mdx` : `${slug}.md`,
       ...frontmatter,
       date: frontmatter.date ? new Date(frontmatter.date).toISOString() : null,
+      lastmod: frontmatter.lastmod ? new Date(frontmatter.lastmod).toISOString() : null,
     },
   }
 }
