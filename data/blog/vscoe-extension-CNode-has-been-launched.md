@@ -1,7 +1,7 @@
 ---
 title: 一起来写 VS Code 插件：VS Code 版 CNode 已上线
 date: 2023-01-19 20:17:54
-lastmod: 2026-03-18 04:30:35 +0800
+lastmod: 2026-03-19 14:16:16
 tags:
   - 前端
   - Visual Studio Code

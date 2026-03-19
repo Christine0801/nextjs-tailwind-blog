@@ -1,7 +1,7 @@
 ---
 title: 让Debian终端文件显示不同颜色
 date: 2025-12-17 20:17:55
-lastmod: 2026-03-18 04:30:35 +0800
+lastmod: 2026-03-19 14:16:16
 tags:
   - Linux
   - Terminal
