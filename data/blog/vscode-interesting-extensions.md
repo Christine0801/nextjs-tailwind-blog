@@ -1,9 +1,9 @@
 ---
 title: 盘点那些好玩有趣的 VSCODE 插件
 date: 2022-05-17 20:17:54
-lastmod: 2026-03-19 14:16:16
+lastmod: 2026-05-25 04:36:43
 tags:
-  - 前端
+  - Frontend
   - Visual Studio Code
 draft: false
 summary: “工欲善其事，必先利其器！” vscode 作为前端开发的重要工具，其插件能大幅提升战斗力，精心收集12+插件，总有几款你还未曾拥有。

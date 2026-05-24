@@ -1,9 +1,9 @@
 ---
 title: 油猴脚本开发教程
 date: 2024-07-27 20:17:55
-lastmod: 2026-03-19 14:16:16
+lastmod: 2026-05-25 04:36:43
 tags:
-  - 前端
+  - Frontend
   - JavaScript
   - GitHub
 draft: false

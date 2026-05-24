@@ -1,11 +1,11 @@
 ---
 title: 如何使用 ONLY OFFICE 在你的 WEB 中集成 OFFICE 文档编辑功能
 date: 2026-03-17 20:17:54
-lastmod: 2026-03-19 14:16:16
+lastmod: 2026-05-25 04:36:43
 tags:
   - Node.js
   - Docker
-  - 开源
+  - Open source
 draft: false
 summary: 本文主要介绍了 ONLYOFFICE，以及使用 docker 在 Linux 部署ONLYOFFICE，并且使用 Nodejs 对接的过程。
 images:

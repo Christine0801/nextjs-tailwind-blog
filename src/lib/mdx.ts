@@ -1,3 +1,5 @@
+import { createHash } from 'crypto'
+import { slug as githubSlug } from 'github-slugger'
 import { bundleMDX } from 'mdx-bundler'
 import fs from 'fs'
 import matter from 'gray-matter'
@@ -34,6 +36,26 @@ export function getFiles(type: 'blog' | 'authors') {
 
 export function formatSlug(slug: string) {
   return slug.replace(/\.(mdx|md)/, '')
+}
+
+/**
+ * 基于 tags 和文件名生成唯一的路由 slug
+ * 格式：tag1-tag2-tag3-6位哈希
+ */
+export function generateRouteSlug(tags: string[] | undefined, fileName: string): string {
+  const safeFileName = Array.isArray(fileName) ? fileName.join('-') : String(fileName || '')
+  const hash = createHash('md5').update(safeFileName).digest('hex').slice(0, 6)
+
+  if (!tags || !Array.isArray(tags) || tags.length === 0) {
+    return hash
+  }
+
+  const tagSlugs = tags
+    .slice(0, 3)
+    .map((tag) => githubSlug(tag))
+    .filter(Boolean)
+
+  return tagSlugs.length > 0 ? [...tagSlugs, hash].join('-') : hash
 }
 
 export function dateSortDesc(a: string, b: string) {
@@ -101,9 +123,9 @@ export async function getFileBySlug<T>(type: 'authors' | 'blog', slug: string | 
     toc,
     frontMatter: {
       readingTime: readingTime(code),
-      slug: slug || null,
       fileName: fs.existsSync(mdxPath) ? `${slug}.mdx` : `${slug}.md`,
       ...frontmatter,
+      slug: generateRouteSlug(frontmatter.tags, Array.isArray(slug) ? slug.join('-') : slug),
       date: frontmatter.date ? new Date(frontmatter.date).toISOString() : null,
       lastmod: frontmatter.lastmod ? new Date(frontmatter.lastmod).toISOString() : null,
     },
@@ -130,7 +152,8 @@ export async function getAllFilesFrontMatter(folder: 'blog') {
     if ('draft' in frontmatter && frontmatter.draft !== true) {
       allFrontMatter.push({
         ...frontmatter,
-        slug: formatSlug(fileName),
+        slug: generateRouteSlug(frontmatter.tags, fileName),
+        fileName,
         date: frontmatter.date ? new Date(frontmatter.date).toISOString() : null,
         lastmod: frontmatter.lastmod ? new Date(frontmatter.lastmod).toISOString() : null,
       })

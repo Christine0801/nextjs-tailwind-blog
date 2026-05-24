@@ -1,11 +1,11 @@
 ---
 title: 如何盘点出掘金的年度高赞文章？
 date: 2025-06-17 20:17:53
-lastmod: 2026-03-19 14:16:16
+lastmod: 2026-05-25 04:36:43
 tags:
   - Node.js
-  - 掘金社区
-  - 前端
+  - Gold-miner
+  - Frontend
 draft: false
 summary: >-
   我的新年 Flag ，就是掘金等级到达 V4，而对于绝大多数读者来说，新年 Flag
