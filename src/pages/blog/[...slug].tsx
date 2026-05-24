@@ -2,7 +2,7 @@ import fs from 'fs'
 import PageTitle from '@/components/PageTitle'
 import generateRss from '@/lib/generate-rss'
 import { MDXLayoutRenderer } from '@/components/MDXComponents'
-import { formatSlug, getAllFilesFrontMatter, getFileBySlug, getFiles } from '@/lib/mdx'
+import { formatSlug, getAllFilesFrontMatter, getFileBySlug } from '@/lib/mdx'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { AuthorFrontMatter } from 'types/AuthorFrontMatter'
 import { PostFrontMatter } from 'types/PostFrontMatter'
@@ -11,11 +11,11 @@ import { Toc } from 'types/Toc'
 const DEFAULT_LAYOUT = 'PostLayout'
 
 export async function getStaticPaths() {
-  const posts = getFiles('blog')
+  const posts = await getAllFilesFrontMatter('blog')
   return {
     paths: posts.map((p) => ({
       params: {
-        slug: formatSlug(p).split('/'),
+        slug: p.slug.split('/'),
       },
     })),
     fallback: false,
@@ -29,12 +29,13 @@ export const getStaticProps: GetStaticProps<{
   prev?: { slug: string; title: string }
   next?: { slug: string; title: string }
 }> = async ({ params }) => {
-  const slug = (params.slug as string[]).join('/')
+  const routeSlug = (params.slug as string[]).join('/')
   const allPosts = await getAllFilesFrontMatter('blog')
-  const postIndex = allPosts.findIndex((post) => formatSlug(post.slug) === slug)
+  const postIndex = allPosts.findIndex((post) => post.slug === routeSlug)
   const prev: { slug: string; title: string } = allPosts[postIndex + 1] || null
   const next: { slug: string; title: string } = allPosts[postIndex - 1] || null
-  const post = await getFileBySlug<PostFrontMatter>('blog', slug)
+  const currentPost = allPosts[postIndex]
+  const post = await getFileBySlug<PostFrontMatter>('blog', formatSlug(currentPost.fileName))
   // @ts-ignore
   const authorList = post.frontMatter.authors || ['default']
   const authorPromise = authorList.map(async (author) => {

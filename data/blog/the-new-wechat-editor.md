@@ -1,11 +1,11 @@
 ---
 title: 微信排版工具新选择
 date: 2024-12-17 20:17:54
-lastmod: 2026-03-19 14:16:16
+lastmod: 2026-05-25 04:36:43
 tags:
   - JavaScript
   - React.js
-  - 微信
+  - Wechat
 draft: false
 summary: 我写了一个微信排版编辑器，使用 MDX，可自定义组件、样式、生成二维码、代码 diff 高亮，可导出 markdown 和 PDF。
 images:

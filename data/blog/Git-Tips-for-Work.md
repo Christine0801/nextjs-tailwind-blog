@@ -1,10 +1,11 @@
 ---
 title: 我在工作中使用 git 的几个技巧
 date: 2024-05-19 20:17:55
-lastmod: 2026-03-19 14:16:16
+lastmod: 2026-05-25 04:36:43
 tags:
   - Git
-  - 掘金·金石计划
+  - Gold-Miner
+  - Metal Stone Project
 draft: false
 summary: >-
   Git 是每个程序员的必备技能，良好的 Git 提交习惯，不但可以让代码阅读更清晰，还可以提高我们的我们的工作效率，接下来我将分享我在工作中关于 Git
