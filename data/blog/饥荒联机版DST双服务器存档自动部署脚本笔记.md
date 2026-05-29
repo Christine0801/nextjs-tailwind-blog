@@ -1,17 +1,15 @@
 ---
 title: 饥荒联机版（DST）双服务器存档自动部署脚本笔记
 date: 2026-05-30T05:21:10.000Z
-lastmod: 2026-05-30T05:30:32.000Z
+lastmod: 2026-05-30 06:03:28
 tags:
-  - DST
-  - PowerShell
   - Linux
+  - PowerShell
+  - DST
   - 饥荒
 draft: false
 summary: ''
-images:
-  - >-
-    https://images.unsplash.com/photo-1731834451080-3702874e85c0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTgzNTJ8MHwxfHNlYXJjaHwxfHxEU1QlMjBQb3dlclNoZWxsfGVufDB8MHx8fDE3ODAwOTAyNjB8MA&ixlib=rb-4.1.0&q=80&w=1080
+images: [/static/images/250820CAC574CB4D14DF48D99E525F1F476E9.webp]
 authors:
   - default
 layout: PostLayout
@@ -302,13 +300,13 @@ if ($TestMode) {
 
 ### 八、常见问题
 
-| 问题                     | 解决方法                                          |
-| :----------------------- | :------------------------------------------------ | --- | ---------------------------- |
-| `scp` / `ssh` 找不到命令 | 安装 OpenSSH 客户端，或添加至 PATH。              |
-| 权限被拒绝（publickey）  | 配置 SSH 免密登录，或检查脚本中的用户名是否正确。 |
-| unzip 警告反斜杠         | 已通过 `                                          |     | true` 忽略，不影响解压结果。 |
-| 路径出现反斜杠 `\`       | 脚本内部已自动将 Windows 反斜杠转为正斜杠。       |
-| 中文乱码                 | 执行 `chcp 65001` 并设置 `$OutputEncoding`。      |
+| 问题                     | 解决方法                                               |
+| :----------------------- | :----------------------------------------------------- |
+| `scp` / `ssh` 找不到命令 | 安装 OpenSSH 客户端，或添加至 PATH。                   |
+| 权限被拒绝（publickey）  | 配置 SSH 免密登录，或检查脚本中的用户名是否正确。      |
+| unzip 警告反斜杠         | 已通过 <code>&#124; true</code> 忽略，不影响解压结果。 |
+| 路径出现反斜杠 `\`       | 脚本内部已自动将 Windows 反斜杠转为正斜杠。            |
+| 中文乱码                 | 执行 `chcp 65001` 并设置 `$OutputEncoding`。           |
 
 ---
 

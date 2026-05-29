@@ -91,6 +91,17 @@ module.exports = {
               color: theme('colors.gray.900'),
               borderLeftColor: theme('colors.gray.200'),
             },
+            thead: {
+              th: {
+                color: theme('colors.gray.900'),
+                borderBottomColor: theme('colors.gray.300'),
+              },
+            },
+            tbody: {
+              tr: {
+                borderBottomColor: theme('colors.gray.200'),
+              },
+            },
           },
         },
         dark: {
@@ -141,6 +152,7 @@ module.exports = {
             thead: {
               th: {
                 color: theme('colors.gray.100'),
+                borderBottomColor: theme('colors.gray.600'),
               },
             },
             tbody: {
