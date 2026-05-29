@@ -1,7 +1,7 @@
 ---
 title: MDX 让 Markdown 步入组件时代
 date: 2023-03-17 20:17:53
-lastmod: 2026-05-26 13:59:30
+lastmod: 2026-05-30 05:45:05
 tags:
   - Frontend
   - React.js
