@@ -27,6 +27,10 @@ import rehypePresetMinify from 'rehype-preset-minify'
 
 const root = process.cwd()
 
+// 构建时缓存，避免 getStaticProps 中重复计算
+const frontMatterCache = new Map<string, PostFrontMatter[]>()
+const fileBySlugCache = new Map<string, { mdxSource: string; toc: Toc; frontMatter: any }>()
+
 export function getFiles(type: 'blog' | 'authors') {
   const prefixPaths = path.join(root, 'data', type)
   const files = getAllFilesRecursively(prefixPaths)
@@ -65,6 +69,11 @@ export function dateSortDesc(a: string, b: string) {
 }
 
 export async function getFileBySlug<T>(type: 'authors' | 'blog', slug: string | string[]) {
+  const cacheKey = `${type}:${Array.isArray(slug) ? slug.join('/') : slug}`
+  if (fileBySlugCache.has(cacheKey)) {
+    return fileBySlugCache.get(cacheKey) as { mdxSource: string; toc: Toc; frontMatter: T }
+  }
+
   const mdxPath = path.join(root, 'data', type, `${slug}.mdx`)
   const mdPath = path.join(root, 'data', type, `${slug}.md`)
   const source = fs.existsSync(mdxPath)
@@ -118,7 +127,7 @@ export async function getFileBySlug<T>(type: 'authors' | 'blog', slug: string | 
     },
   })
 
-  return {
+  const result = {
     mdxSource: code,
     toc,
     frontMatter: {
@@ -130,9 +139,16 @@ export async function getFileBySlug<T>(type: 'authors' | 'blog', slug: string | 
       lastmod: frontmatter.lastmod ? new Date(frontmatter.lastmod).toISOString() : null,
     },
   }
+
+  fileBySlugCache.set(cacheKey, result)
+  return result
 }
 
 export async function getAllFilesFrontMatter(folder: 'blog') {
+  if (frontMatterCache.has(folder)) {
+    return frontMatterCache.get(folder)!
+  }
+
   const prefixPaths = path.join(root, 'data', folder)
 
   const files = getAllFilesRecursively(prefixPaths)
@@ -160,5 +176,7 @@ export async function getAllFilesFrontMatter(folder: 'blog') {
     }
   })
 
-  return allFrontMatter.sort((a, b) => dateSortDesc(a.date, b.date))
+  const result = allFrontMatter.sort((a, b) => dateSortDesc(a.date, b.date))
+  frontMatterCache.set(folder, result)
+  return result
 }
