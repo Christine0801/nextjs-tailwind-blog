@@ -1,7 +1,7 @@
 ---
 title: '腾讯云 SteamCMD 饥荒更新慢排查与解决'
 date: 2026-06-12 23:15:25
-lastmod: 2026-06-12 23:22:36
+lastmod: 2026-06-12 23:53:39
 tags:
   - rsync
   - steamcmd
@@ -124,6 +124,8 @@ rsync -avz --progress ~/Steam/steamapps/common/"Don't Starve Together Dedicated 
 
 在阿里云上创建 `sync_dst_to_tencent.sh`：
 
+`--exclude`表示排除文件夹，这些文件夹中的文件便不会被同步，这里排除掉了 mod 和 mod 缓存文件夹，只同步游戏本体 ，这样第一次同步就不会在同步 mod 文件中浪费大量的时间，因为 mod 文件夹中存在大量的零碎 mod 文件，会把第一次同步的传输速度拖死
+
 ```bash
 #!/bin/bash
 set -e
@@ -134,13 +136,17 @@ set -e
 # 在阿里云更新完游戏后，执行此脚本增量同步到腾讯云
 # ============================================
 
-TENCENT_IP=""
+TENCENT_IP="139.155.183.138"
 DST_PATH="Don't Starve Together Dedicated Server"
 SRC_DIR="$HOME/Steam/steamapps/common/$DST_PATH"
 DST_DIR="/root/Steam/steamapps/common/$DST_PATH"
 
 echo ">>> 增量同步到腾讯云..."
-rsync -avz --progress "$SRC_DIR/" "root@${TENCENT_IP}:${DST_DIR}/"
+rsync -avz --progress \
+  --exclude='mods/' \
+  --exclude='ugc_mods/' \
+  --exclude='cached_mod_manifests/' \
+  "$SRC_DIR/" "root@${TENCENT_IP}:${DST_DIR}/"
 
 echo ""
 echo ">>> 同步完成!"
