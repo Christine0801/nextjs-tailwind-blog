@@ -12,6 +12,11 @@ const DEFAULT_LAYOUT = 'PostLayout'
 
 export async function getStaticPaths() {
   const posts = await getAllFilesFrontMatter('blog')
+  // RSS 只在构建时生成一次，避免每个页面重复写入
+  if (posts.length > 0) {
+    const rss = generateRss(posts)
+    fs.writeFileSync('./public/feed.xml', rss)
+  }
   return {
     paths: posts.map((p) => ({
       params: {
@@ -30,6 +35,7 @@ export const getStaticProps: GetStaticProps<{
   next?: { slug: string; title: string }
 }> = async ({ params }) => {
   const routeSlug = (params.slug as string[]).join('/')
+  // getAllFilesFrontMatter 已缓存，这里直接复用 getStaticPaths 的结果，不会重复读文件
   const allPosts = await getAllFilesFrontMatter('blog')
   const postIndex = allPosts.findIndex((post) => post.slug === routeSlug)
   const prev: { slug: string; title: string } = allPosts[postIndex + 1] || null
@@ -43,12 +49,6 @@ export const getStaticProps: GetStaticProps<{
     return authorResults.frontMatter
   })
   const authorDetails = await Promise.all(authorPromise)
-
-  // rss
-  if (allPosts.length > 0) {
-    const rss = generateRss(allPosts)
-    fs.writeFileSync('./public/feed.xml', rss)
-  }
 
   return {
     props: {

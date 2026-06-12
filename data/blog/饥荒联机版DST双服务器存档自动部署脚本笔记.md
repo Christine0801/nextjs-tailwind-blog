@@ -1,7 +1,7 @@
 ---
 title: 饥荒联机版（DST）双服务器存档自动部署脚本笔记
 date: 2026-05-30T05:21:10.000Z
-lastmod: 2026-06-12 23:23:16
+lastmod: 2026-06-13 02:41:54
 tags:
   - Linux
   - PowerShell

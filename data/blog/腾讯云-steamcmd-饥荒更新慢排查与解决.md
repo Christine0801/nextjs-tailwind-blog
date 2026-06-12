@@ -1,7 +1,7 @@
 ---
 title: '腾讯云 SteamCMD 饥荒更新慢排查与解决'
 date: 2026-06-12 23:15:25
-lastmod: 2026-06-12 23:53:39
+lastmod: 2026-06-13 02:43:40
 tags:
   - rsync
   - steamcmd
@@ -57,7 +57,7 @@ nslookup media.steampowered.com 183.60.83.19    # 腾讯云默认 DNS
 ### 第三步：大文件下载测速
 
 ```bash
-curl -L -o /dev/null -w "speed: %{speed_download} B/s, time: %{time_total}s, size: %{size_download} bytes\n" \http://media.steampowered.com/client/installer/steam.deb
+curl -L -o /dev/null -w "speed: %{speed_download} B/s, time: %{time_total}s, size: %{size_download} bytes\n" http://media.steampowered.com/client/installer/steam.deb
 ```
 
 | 云厂商 | 下载速度  | 耗时（19.3MB） |
@@ -112,8 +112,7 @@ ssh root@腾讯云IP
 然后 rsync 同步到腾讯云：
 
 ```bash
-rsync -avz --progress ~/Steam/steamapps/common/"Don't Starve Together Dedicated Server"/ \
-  root@腾讯云IP:/root/Steam/steamapps/common/"Don't Starve Together Dedicated Server"/
+rsync -avz --progress ~/Steam/steamapps/common/"Don't Starve Together Dedicated Server"/ root@服务器IP:/root/Steam/steamapps/common/"Don't Starve Together Dedicated Server"/
 ```
 
 > **注意**：首次执行 rsync 是全量传输，文件多的话需要等一会儿。这是正常的——因为没有比对基准，所有文件都要传一遍。
