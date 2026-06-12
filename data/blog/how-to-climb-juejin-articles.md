@@ -1,7 +1,7 @@
 ---
 title: 如何盘点出掘金的年度高赞文章？
 date: 2025-06-17 20:17:53
-lastmod: 2026-05-30 05:45:05
+lastmod: 2026-05-30 06:03:43
 tags:
   - Node.js
   - Gold-miner
