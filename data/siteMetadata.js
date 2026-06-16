@@ -5,7 +5,7 @@ const siteMetadata = {
   description: '分享自己的学习笔记，分享对生活的热爱，埋藏心中的思念。',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'http://139.155.183.138',
+  siteUrl: 'https://calvinhiram.top',
   siteRepo: 'https://github.com/Christine0801/nextjs-tailwind-blog',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
