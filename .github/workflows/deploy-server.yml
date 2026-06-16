@@ -19,7 +19,10 @@ jobs:
       
       - name: Install dependencies
         run: npm install
-      
+
+      - name: Restore .env
+        run: echo "${{ secrets.BLOG_PASSWORDS }}" >> .env
+
       - name: Build
         run: npm run build
         env:
