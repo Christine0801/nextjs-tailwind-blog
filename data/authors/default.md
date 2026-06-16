@@ -3,7 +3,7 @@ name: 子君
 avatar: /static/images/avatar.png
 occupation: 全栈小白
 company: 希君生羽翼，一化北溟鱼。
-email: w_zijun0801@tom.com
+email: calvin.hiram@icloud.com
 github: https://github.com/Christine0801
 ---
 
