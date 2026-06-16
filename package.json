@@ -6,6 +6,8 @@
     "start": "cross-env SOCKET=true node ./scripts/next-remote-watch.js ./data",
     "dev": "next dev",
     "new-post": "node scripts/new-post.js",
+    "lock-post": "node scripts/lock-post.js",
+    "unlock-post": "node scripts/unlock-post.js",
     "update-dates": "node scripts/update-dates.js",
     "build": "node scripts/update-dates.js && node scripts/generate-covers.js && next build && node ./scripts/generate-sitemap",
     "serve": "next start",

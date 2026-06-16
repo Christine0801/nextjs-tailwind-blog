@@ -6,6 +6,7 @@ import { formatSlug, getAllFilesFrontMatter, getFileBySlug } from '@/lib/mdx'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { AuthorFrontMatter } from 'types/AuthorFrontMatter'
 import { PostFrontMatter } from 'types/PostFrontMatter'
+import { EncryptedData } from 'types/EncryptedData'
 import { Toc } from 'types/Toc'
 
 const DEFAULT_LAYOUT = 'PostLayout'
@@ -29,7 +30,7 @@ export async function getStaticPaths() {
 
 // @ts-ignore
 export const getStaticProps: GetStaticProps<{
-  post: { mdxSource: string; toc: Toc; frontMatter: PostFrontMatter }
+  post: { mdxSource: string | EncryptedData; toc: Toc; frontMatter: PostFrontMatter }
   authorDetails: AuthorFrontMatter[]
   prev?: { slug: string; title: string }
   next?: { slug: string; title: string }
@@ -68,28 +69,31 @@ export default function Blog({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { mdxSource, toc, frontMatter } = post
 
+  const isDraft = 'draft' in frontMatter && frontMatter.draft === true
+  const isProtected = frontMatter.password_protected === true
+
+  if (isDraft && !isProtected) {
+    return (
+      <div className="mt-24 text-center">
+        <PageTitle>
+          Under Construction{' '}
+          <span role="img" aria-label="roadwork sign">
+            🚧
+          </span>
+        </PageTitle>
+      </div>
+    )
+  }
+
   return (
-    <>
-      {'draft' in frontMatter && frontMatter.draft !== true ? (
-        <MDXLayoutRenderer
-          layout={frontMatter.layout || DEFAULT_LAYOUT}
-          toc={toc}
-          mdxSource={mdxSource}
-          frontMatter={frontMatter}
-          authorDetails={authorDetails}
-          prev={prev}
-          next={next}
-        />
-      ) : (
-        <div className="mt-24 text-center">
-          <PageTitle>
-            Under Construction{' '}
-            <span role="img" aria-label="roadwork sign">
-              🚧
-            </span>
-          </PageTitle>
-        </div>
-      )}
-    </>
+    <MDXLayoutRenderer
+      layout={frontMatter.layout || DEFAULT_LAYOUT}
+      toc={toc}
+      mdxSource={mdxSource}
+      frontMatter={frontMatter}
+      authorDetails={authorDetails}
+      prev={prev}
+      next={next}
+    />
   )
 }

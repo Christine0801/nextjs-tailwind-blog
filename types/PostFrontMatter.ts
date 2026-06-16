@@ -11,4 +11,6 @@ export type PostFrontMatter = {
   canonicalUrl?: string
   slug: string
   fileName: string
+  password_env?: string
+  password_protected?: boolean
 }
