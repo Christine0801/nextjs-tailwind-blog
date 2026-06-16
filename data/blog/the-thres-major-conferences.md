@@ -1,17 +1,18 @@
 ---
 title: 三大会议
 date: 2026-03-22T05:05:27.000Z
-lastmod: 2026-06-13 02:41:54
+lastmod: 2026-06-16 20:34:55
 tags:
   - Agenda
 draft: false
-summary: '三大会议完整流程、会单模板及细节'
+summary: 三大会议完整流程、会单模板及细节
 images:
   - >-
     https://images.unsplash.com/photo-1653669485150-3eda1804e4d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTgzNTJ8MHwxfHNlYXJjaHwxfHxBZ2VuZGF8ZW58MHwwfHx8MTc3NDEyODI0OHww&ixlib=rb-4.1.0&q=80&w=1080
 authors:
   - default
 layout: PostLayout
+password_env: BLOG_PW_THE_THRES_MAJOR_CONFERENCES
 ---
 
 # 三大会议
