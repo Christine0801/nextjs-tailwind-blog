@@ -5,7 +5,15 @@ import Tag from '@/components/Tag'
 import formatDate from '@/lib/utils/formatDate'
 import { PostFrontMatter } from 'types/PostFrontMatter'
 
-export default function Article({ slug, date, title, summary, tags, images }: PostFrontMatter) {
+export default function Article({
+  slug,
+  date,
+  title,
+  summary,
+  tags,
+  images,
+  password_protected,
+}: PostFrontMatter) {
   const src = Array.isArray(images) ? images[0] : images
   return (
     <li className="py-12">
@@ -37,6 +45,21 @@ export default function Article({ slug, date, title, summary, tags, images }: Po
               <div>
                 <h2 className="text-2xl font-bold leading-8 tracking-tight">
                   <Link href={`/blog/${slug}`} className="text-gray-900 dark:text-gray-100">
+                    {password_protected && (
+                      <svg
+                        className="mr-1.5 inline-block h-4 w-4 text-gray-400 dark:text-gray-500"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                        />
+                      </svg>
+                    )}
                     {title}
                   </Link>
                 </h2>

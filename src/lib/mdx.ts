@@ -8,7 +8,9 @@ import readingTime from 'reading-time'
 import getAllFilesRecursively from './utils/files'
 import { PostFrontMatter } from 'types/PostFrontMatter'
 import { AuthorFrontMatter } from 'types/AuthorFrontMatter'
+import { EncryptedData } from 'types/EncryptedData'
 import { Toc } from 'types/Toc'
+import { encryptMDXSource } from './encryption.server'
 // Remark packages
 import remarkGfm from 'remark-gfm'
 import remarkFootnotes from 'remark-footnotes'
@@ -29,7 +31,10 @@ const root = process.cwd()
 
 // 构建时缓存，避免 getStaticProps 中重复计算
 const frontMatterCache = new Map<string, PostFrontMatter[]>()
-const fileBySlugCache = new Map<string, { mdxSource: string; toc: Toc; frontMatter: any }>()
+const fileBySlugCache = new Map<
+  string,
+  { mdxSource: string | EncryptedData; toc: Toc; frontMatter: any }
+>()
 
 export function getFiles(type: 'blog' | 'authors') {
   const prefixPaths = path.join(root, 'data', type)
@@ -71,7 +76,11 @@ export function dateSortDesc(a: string, b: string) {
 export async function getFileBySlug<T>(type: 'authors' | 'blog', slug: string | string[]) {
   const cacheKey = `${type}:${Array.isArray(slug) ? slug.join('/') : slug}`
   if (fileBySlugCache.has(cacheKey)) {
-    return fileBySlugCache.get(cacheKey) as { mdxSource: string; toc: Toc; frontMatter: T }
+    return fileBySlugCache.get(cacheKey) as {
+      mdxSource: string | EncryptedData
+      toc: Toc
+      frontMatter: T
+    }
   }
 
   const mdxPath = path.join(root, 'data', type, `${slug}.mdx`)
@@ -127,7 +136,11 @@ export async function getFileBySlug<T>(type: 'authors' | 'blog', slug: string | 
     },
   })
 
-  const result = {
+  const result: {
+    mdxSource: string | EncryptedData
+    toc: Toc
+    frontMatter: any
+  } = {
     mdxSource: code,
     toc,
     frontMatter: {
@@ -140,8 +153,19 @@ export async function getFileBySlug<T>(type: 'authors' | 'blog', slug: string | 
     },
   }
 
+  if (frontmatter.password_env) {
+    const password = process.env[frontmatter.password_env]
+    if (!password) {
+      throw new Error(
+        `Post "${slug}" requires password from env var "${frontmatter.password_env}", but it is not set. Add ${frontmatter.password_env}=<password> to .env`
+      )
+    }
+    result.mdxSource = encryptMDXSource(code, password)
+    result.frontMatter.password_protected = true
+  }
+
   fileBySlugCache.set(cacheKey, result)
-  return result
+  return result as { mdxSource: string | EncryptedData; toc: Toc; frontMatter: T }
 }
 
 export async function getAllFilesFrontMatter(folder: 'blog') {
@@ -166,8 +190,11 @@ export async function getAllFilesFrontMatter(folder: 'blog') {
     const matterFile = matter(source)
     const frontmatter = matterFile.data as AuthorFrontMatter | PostFrontMatter
     if ('draft' in frontmatter && frontmatter.draft !== true) {
+      const hasPassword =
+        (frontmatter as any).password_env && process.env[(frontmatter as any).password_env]
       allFrontMatter.push({
         ...frontmatter,
+        ...(hasPassword ? { password_protected: true } : {}),
         slug: generateRouteSlug(frontmatter.tags, fileName),
         fileName,
         date: frontmatter.date ? new Date(frontmatter.date).toISOString() : null,
