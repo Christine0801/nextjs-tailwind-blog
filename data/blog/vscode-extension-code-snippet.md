@@ -1,7 +1,7 @@
 ---
 title: '一起来写 VS Code 插件:为你的团队提供常用代码片段'
 date: 2022-03-17 20:17:54
-lastmod: 2026-06-13 02:41:54
+lastmod: 2026-06-16 20:33:55
 tags:
   - Visual Studio Code
   - Frontend
