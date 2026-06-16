@@ -58,25 +58,28 @@ else
 fi
 
 # 3. 申请证书（standalone 模式，需要 80 端口空闲）
-echo -e "${YELLOW}申请 SSL 证书...${NC}"
-systemctl stop nginx 2>/dev/null || true
-certbot certonly \
-  --standalone \
-  --non-interactive \
-  --agree-tos \
-  --email "$EMAIL" \
-  -d "$DOMAIN" \
-  -d "$WWW_DOMAIN"
-
-# 4. 确认证书位置
 CERT_PATH="/etc/letsencrypt/live/$DOMAIN/fullchain.pem"
 KEY_PATH="/etc/letsencrypt/live/$DOMAIN/privkey.pem"
 
-if [ ! -f "$CERT_PATH" ]; then
-  echo -e "${RED}证书申请失败，请检查 DNS 是否已指向本服务器${NC}"
-  exit 1
+if [ -f "$CERT_PATH" ]; then
+  echo -e "${GREEN}证书已存在，跳过申请${NC}"
+else
+  echo -e "${YELLOW}申请 SSL 证书...${NC}"
+  systemctl stop nginx 2>/dev/null || true
+  certbot certonly \
+    --standalone \
+    --non-interactive \
+    --agree-tos \
+    --email "$EMAIL" \
+    -d "$DOMAIN" \
+    -d "$WWW_DOMAIN"
+
+  if [ ! -f "$CERT_PATH" ]; then
+    echo -e "${RED}证书申请失败，请检查 DNS 是否已指向本服务器${NC}"
+    exit 1
+  fi
+  echo -e "${GREEN}证书申请成功${NC}"
 fi
-echo -e "${GREEN}证书申请成功${NC}"
 
 # 5. 备份旧 Nginx 配置（如果存在）
 if [ -f "$NGINX_CONF" ]; then
