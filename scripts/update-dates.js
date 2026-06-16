@@ -1,172 +1,124 @@
+/**
+ * 为有实际内容改动的文章自动更新 lastmod 字段
+ * 使用 git diff 检测文件变更（而非不可靠的 mtime）
+ */
 const fs = require('fs')
 const path = require('path')
+const { execSync } = require('child_process')
 
-// 递归遍历 data/blog 目录
-function getAllMarkdownFiles(dir) {
-  const files = []
-  const items = fs.readdirSync(dir)
+const BLOG_DIR = path.join(__dirname, '..', 'data', 'blog')
 
-  for (const item of items) {
-    const fullPath = path.join(dir, item)
-    const stat = fs.statSync(fullPath)
-
-    if (stat.isDirectory()) {
-      files.push(...getAllMarkdownFiles(fullPath))
-    } else if (item.endsWith('.md')) {
-      files.push(fullPath)
-    }
-  }
-
-  return files
-}
-
-// 解析 Markdown 文件的 FrontMatter
-function parseFrontMatter(content) {
-  const lines = content.split('\n')
-  const frontMatter = {}
-  let inFrontMatter = false
-  let frontMatterEndIndex = 0
-
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i]
-
-    if (i === 0 && line === '---') {
-      inFrontMatter = true
-      continue
-    }
-
-    if (inFrontMatter && line === '---') {
-      frontMatterEndIndex = i + 1
-      break
-    }
-
-    if (inFrontMatter) {
-      const match = line.match(/^(\w+):\s*(.*)$/)
-      if (match) {
-        frontMatter[match[1]] = match[2]
-      }
-    }
-  }
-
-  return { frontMatter, frontMatterEndIndex }
-}
-
-// 移除 lastmod 字段的内容，用于比较实际内容是否变化
-function removeLastModForComparison(content) {
-  return content.replace(/^lastmod:\s*.*$/m, '').replace(/^\nlastmod:.*$/m, '')
-}
-
-// 比较两个时间字符串是否相同（忽略空格）
-function isTimeEqual(time1, time2) {
-  if (!time1 || !time2) return false
-  return time1.trim() === time2.trim()
-}
-
-// 检查文件是否真的被修改过（排除 lastmod 字段本身）
-function isFileActuallyModified(filePath, currentLastMod) {
+function isGitRepo() {
   try {
-    // 读取当前文件内容
-    const currentContent = fs.readFileSync(filePath, 'utf-8')
-
-    // 移除 lastmod 字段进行比较
-    const contentWithoutLastMod = removeLastModForComparison(currentContent)
-
-    // 获取文件的最后修改时间（排除 lastmod 字段本身的时间）
-    const stats = fs.statSync(filePath)
-    const fileModTime = stats.mtime
-
-    // 如果 lastmod 字段存在且与文件修改时间接近（1分钟内），则认为没有真正修改
-    if (currentLastMod) {
-      const lastModDate = new Date(currentLastMod)
-      const timeDiff = Math.abs(fileModTime - lastModDate)
-
-      // 如果差异小于1分钟，认为是脚本自己更新的，不是真正的内容修改
-      if (timeDiff < 60000) {
-        return false
-      }
-    }
-
-    // 如果文件内容（排除 lastmod）和文件修改时间都匹配，则认为没有真正修改
+    execSync('git rev-parse --git-dir', { stdio: 'ignore' })
     return true
-  } catch (error) {
+  } catch {
     return false
   }
 }
 
-// 更新 markdown 文件的 lastmod
-function updateMarkdownFile(filePath) {
-  const content = fs.readFileSync(filePath, 'utf-8')
-  const { frontMatter, frontMatterEndIndex } = parseFrontMatter(content)
+/**
+ * 检查文件自上次 commit 以来是否有内容改动（排除 lastmod 行）
+ * 同时处理未跟踪的新文件
+ */
+function hasContentChanged(filePath) {
+  try {
+    const relativePath = path.relative(path.join(__dirname, '..'), filePath).replace(/\\/g, '/')
 
-  const currentLastMod = frontMatter.lastmod
-
-  // 获取文件系统的修改时间
-  const stats = fs.statSync(filePath)
-  const mtime = stats.mtime
-
-  // 格式化为与 date 字段相同的格式：YYYY-MM-DD HH:mm:ss
-  const year = mtime.getFullYear()
-  const month = String(mtime.getMonth() + 1).padStart(2, '0')
-  const day = String(mtime.getDate()).padStart(2, '0')
-  const hours = String(mtime.getHours()).padStart(2, '0')
-  const minutes = String(mtime.getMinutes()).padStart(2, '0')
-  const seconds = String(mtime.getSeconds()).padStart(2, '0')
-
-  const newLastMod = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
-
-  // 如果当前的 lastmod 与文件修改时间相同，则跳过
-  if (currentLastMod && isTimeEqual(currentLastMod, newLastMod)) {
-    return
-  }
-
-  // 检查文件是否真正被修改过（排除脚本自己的更新）
-  if (currentLastMod && !isFileActuallyModified(filePath, currentLastMod)) {
-    return
-  }
-
-  // 更新 lastmod
-  let updatedContent = content
-
-  // 检查是否已有 lastmod 字段
-  if (content.match(/^lastmod:\s*/m)) {
-    updatedContent = updatedContent.replace(/^lastmod:\s*.*/m, `lastmod: ${newLastMod}`)
-  } else {
-    // 如果没有 lastmod 字段，在 date 字段后添加
-    if (content.match(/^date:\s*/m)) {
-      updatedContent = updatedContent.replace(/^(date: .*)$/m, `$1\nlastmod: ${newLastMod}`)
-    } else {
-      // 如果连 date 字段都没有，在 --- 后添加
-      updatedContent = updatedContent.replace(/^---\n/m, `---\nlastmod: ${newLastMod}`)
+    // 未跟踪的新文件 → 视为有改动
+    const tracked = execSync(`git ls-files --error-unmatch "${relativePath}"`, { stdio: 'pipe' })
+    if (!tracked) {
+      return true
     }
-  }
 
-  // 只有内容变化时才写入
-  if (content !== updatedContent) {
-    fs.writeFileSync(filePath, updatedContent)
-    console.log(`✓ 更新: ${path.basename(filePath)}`)
-    console.log(`  lastmod: ${newLastMod}`)
+    // 已跟踪：用 git diff 比较工作区与 HEAD
+    const diff = execSync(`git diff HEAD -- "${relativePath}"`, { encoding: 'utf8' })
+    if (!diff) return false
+
+    // 排除仅 lastmod 行变动的 diff
+    const lines = diff.split('\n').filter((line) => line.startsWith('+') || line.startsWith('-'))
+    const meaningful = lines.filter((line) => !line.match(/^[+-]lastmod:/))
+    return meaningful.length > 0
+  } catch {
+    return false
   }
 }
 
-// 主函数
-function main() {
-  const blogDir = path.join(__dirname, '..', 'data', 'blog')
-  const markdownFiles = getAllMarkdownFiles(blogDir)
+function parseFrontMatter(content) {
+  const lines = content.split('\n')
+  if (lines[0] !== '---') return { frontMatter: {}, endIndex: 0 }
 
-  console.log(`找到 ${markdownFiles.length} 个 markdown 文件\n`)
-
-  let updatedCount = 0
-  for (const file of markdownFiles) {
-    const originalContent = fs.readFileSync(file, 'utf-8')
-    updateMarkdownFile(file)
-    const newContent = fs.readFileSync(file, 'utf-8')
-
-    if (originalContent !== newContent) {
-      updatedCount++
-    }
+  const frontMatter = {}
+  for (let i = 1; i < lines.length; i++) {
+    if (lines[i] === '---') return { frontMatter, endIndex: i + 1 }
+    const match = lines[i].match(/^(\w+):\s*(.*)$/)
+    if (match) frontMatter[match[1]] = match[2]
   }
 
-  console.log(`\n完成！更新了 ${updatedCount} 个文件`)
+  return { frontMatter: {}, endIndex: 0 }
+}
+
+function formatDate(date) {
+  const pad = (n) => String(n).padStart(2, '0')
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())} ${pad(
+    date.getHours()
+  )}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`
+}
+
+function updateFile(filePath) {
+  const content = fs.readFileSync(filePath, 'utf8')
+  const { frontMatter } = parseFrontMatter(content)
+  const newLastMod = formatDate(new Date())
+
+  // lastmod 已是最新时间（精确到秒），跳过
+  if (frontMatter.lastmod && frontMatter.lastmod.trim() === newLastMod) return false
+
+  let updated = content
+  if (content.match(/^lastmod:\s*/m)) {
+    updated = updated.replace(/^lastmod:\s*.*/m, `lastmod: ${newLastMod}`)
+  } else if (content.match(/^date:\s*/m)) {
+    updated = updated.replace(/^(date: .*)$/m, `$1\nlastmod: ${newLastMod}`)
+  } else {
+    updated = updated.replace(/^---\n/, `---\nlastmod: ${newLastMod}\n`)
+  }
+
+  if (updated !== content) {
+    fs.writeFileSync(filePath, updated)
+    return true
+  }
+  return false
+}
+
+function main() {
+  const files = fs
+    .readdirSync(BLOG_DIR)
+    .filter((f) => f.endsWith('.md'))
+    .map((f) => path.join(BLOG_DIR, f))
+
+  console.log(`找到 ${files.length} 个 markdown 文件\n`)
+
+  let updatedCount = 0
+
+  if (isGitRepo()) {
+    // 精确模式：只更新有实际内容改动的文件
+    for (const file of files) {
+      if (hasContentChanged(file)) {
+        if (updateFile(file)) {
+          console.log(`${path.basename(file)}`)
+          updatedCount++
+        }
+      }
+    }
+  } else {
+    // 非 git 环境（CI 已存在所有文件为干净状态）：不改任何文件
+    console.log('非 git 环境，跳过 lastmod 更新')
+  }
+
+  if (updatedCount > 0) {
+    console.log(`\n更新了 ${updatedCount} 个文件`)
+  } else {
+    console.log('没有文件需要更新')
+  }
 }
 
 main()
