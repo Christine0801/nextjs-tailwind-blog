@@ -10,7 +10,18 @@ set -e
 DOMAIN="calvinhiram.top"
 WWW_DOMAIN="www.calvinhiram.top"
 EMAIL="calvin.hiram@icloud.com"
-NGINX_CONF="/etc/nginx/sites-available/blog"
+
+# 自动检测 Nginx 配置路径
+if [ -d /etc/nginx/conf.d ]; then
+  NGINX_CONF="/etc/nginx/conf.d/blog.conf"
+  NGINX_DIR_TYPE="conf.d"
+elif [ -d /etc/nginx/sites-available ]; then
+  NGINX_CONF="/etc/nginx/sites-available/blog"
+  NGINX_DIR_TYPE="sites"
+else
+  echo -e "${RED}找不到 Nginx 配置目录（/etc/nginx/conf.d 或 /etc/nginx/sites-available）${NC}"
+  exit 1
+fi
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -67,13 +78,14 @@ if [ ! -f "$CERT_PATH" ]; then
 fi
 echo -e "${GREEN}证书申请成功${NC}"
 
-# 5. 备份旧 Nginx 配置
+# 5. 备份旧 Nginx 配置（如果存在）
 if [ -f "$NGINX_CONF" ]; then
   cp "$NGINX_CONF" "${NGINX_CONF}.bak.$(date +%Y%m%d%H%M%S)"
+  echo -e "${YELLOW}已备份旧配置${NC}"
 fi
 
 # 6. 写入新 Nginx 配置
-echo -e "${YELLOW}配置 Nginx...${NC}"
+echo -e "${YELLOW}写入 Nginx 配置: $NGINX_CONF${NC}"
 cat > "$NGINX_CONF" << NGINX_EOF
 # HTTP → HTTPS 重定向
 server {
@@ -107,11 +119,15 @@ server {
 }
 NGINX_EOF
 
-# 7. 启用站点（Debian/Ubuntu 风格）
-if [ -d /etc/nginx/sites-enabled ]; then
+# 7. 清除旧配置避免冲突
+if [ "$NGINX_DIR_TYPE" = "sites" ]; then
   ln -sf "$NGINX_CONF" /etc/nginx/sites-enabled/blog 2>/dev/null || true
-  # 移除默认站点（避免冲突）
   rm -f /etc/nginx/sites-enabled/default
+elif [ "$NGINX_DIR_TYPE" = "conf.d" ]; then
+  # 确保 nginx.conf 中包含 conf.d
+  if ! grep -q 'include.*conf\.d' /etc/nginx/nginx.conf 2>/dev/null; then
+    echo 'include /etc/nginx/conf.d/*.conf;' >> /etc/nginx/nginx.conf
+  fi
 fi
 
 # 8. 启动并测试 Nginx
