@@ -7,8 +7,7 @@ tags:
   - Nginx
 draft: false
 summary: 在Linux下安装Nginx教程，这里以CentOS举例，同时安装过程中所会出现的一些问题，也会附带有解释和解决办法
-images:
-  - /static/images/Nginx.png
+images:[https://calvinhiram.top/images/Nginx.webp]
 authors:
   - default
 layout: PostLayout

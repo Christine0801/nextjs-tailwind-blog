@@ -9,7 +9,7 @@ tags:
   - 饥荒
 draft: false
 summary: ''
-images: [/static/images/250820CAC574CB4D14DF48D99E525F1F476E9.webp]
+images: [https://calvinhiram.top/images/250820CAC574CB4D14DF48D99E525F1F476E9.webp]
 authors:
   - default
 layout: PostLayout

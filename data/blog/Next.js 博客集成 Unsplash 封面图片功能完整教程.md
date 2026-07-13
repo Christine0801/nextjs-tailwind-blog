@@ -11,7 +11,7 @@ tags:
   - Next.js
 draft: false
 summary: '博客开发完成后，苦恼于文章卡片封面问题，因为博主维护博客并不频繁，所以不打算继续订阅OSS服务，所以给自己的项目引入UnplashAPI，来为文章自动生成封面，不过有概率会出现封面和内容相关度不高的情况'
-images: [/static/images/00658PICz3N2Jp7daf268_PIC2018_PIC2018.jpg]
+images: [https://calvinhiram.top/images/00658PICz3N2Jp7daf268_PIC2018_PIC2018.webp]
 authors: ['default']
 layout: PostLayout
 ---

@@ -10,9 +10,7 @@ draft: false
 summary: >-
   使用 navigator.clipboard.writeText 完成复制功能的实现时，在本地测试没有问题，部署后报错navigator.clipboard
   Cannot read property ‘writeText‘ of undefined
-images:
-  - >-
-    /static/images/Navigator-clipboard-writerText-undefined.png
+images:[https://calvinhiram.top/images/Navigator-clipboard-writerText-undefined.webp]
 authors:
   - default
 layout: PostLayout
@@ -22,7 +20,7 @@ layout: PostLayout
 
 ![image-20230216215633874](https://my-markdown-image-host.oss-cn-shanghai.aliyuncs.com/image-20230216215633874.png)
 
-​ 原因：Navigator API 的安全策略禁用了非安全域的 `navigator.clipboard` 对象，API 仅支持通过 HTTPS 提供的页面。为帮助防止滥用，仅当页面是活动选项卡时才允许访问剪贴板。活动选项卡中的页面无需请求许可即可写入剪贴板，但从剪贴板读取始终需要许可。
+ 原因：Navigator API 的安全策略禁用了非安全域的 `navigator.clipboard` 对象，API 仅支持通过 HTTPS 提供的页面。为帮助防止滥用，仅当页面是活动选项卡时才允许访问剪贴板。活动选项卡中的页面无需请求许可即可写入剪贴板，但从剪贴板读取始终需要许可。
 
 ![image-20230216215831920](https://my-markdown-image-host.oss-cn-shanghai.aliyuncs.com/image-20230216215831920.png)
 

@@ -10,8 +10,7 @@ draft: false
 summary: >-
   目前我学会了使用Gihub Action来部署自己的自动工作流，实现本地编写博客->推送GitHub
   main分支->自动构建->构建好的静态博客推送到服务器，我想把这个过程写下来，以此作为一个教程
-images:
-  - /static/images/image_391808836608926.png
+images:[https://calvinhiram.top/images/image_391808836608926.webp]
 authors:
   - default
 layout: PostLayout

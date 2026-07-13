@@ -10,7 +10,7 @@ tags:
   - Linux
 draft: false
 summary: "腾讯云服务器使用 SteamCMD 更新饥荒服务端（Don't Starve Together），一个 30MB 的更新包下载非常慢（约 720 KB/s，耗时 30 秒+），而同配置的阿里云服务器下载同样内容仅需 8 秒（约 2.3 MB/s）。"
-images: [/static/images/how-to-use-rsync-command-in-linux-featured.png]
+images: [https://calvinhiram.top/images/how-to-use-rsync-command-in-linux-featured.webp]
 authors: ['default']
 layout: PostLayout
 ---
