@@ -182,6 +182,114 @@ ssh-copy-id root@你的服务器IP
 
 在 PicGo 插件设置中搜索 **webp** 安装即可，无需额外配置。插件会先转换格式再走 SFTP 上传，对使用流程完全透明。
 
+## 2.4 （可选）Webp插件可能遇到Bug
+
+笔者这个版本的PicGo（v2.4.0）与Webp插件有兼容性不一致bug，导致Webp转换时会有Bug
+
+问题链：
+  1. 开启了 picgo-plugin-webp 插件，它把 PNG 转成了 .webp
+  2. 但转换后的 .webp 文件不存在或读取失败
+  3. 导致 PicGo 的 output 数组为空
+  4. SFTP 插件访问 output[0].buffer 时，output[0] 是 undefined，就报错了
+
+打开`C:\Users\CalvinHiram\AppData\Roaming\picgo\node_modules\picgo-plugin-webp\dist\index.js`文件，找到`beforeTransformolugins`函数
+
+可以发现WebP 插件只取首图且数组错当路径传参
+
+- `const [tempPath] = ctx.input` 解构只取了数组第一个元素，多图时其余全丢
+- `cwebp(ctx.input, ...)` 把整个数组当成文件路径字符串传给 cwebp，导致转换静默失败
+
+```javascript
+const beforeTransformPlugins = {
+      async handle(ctx) {
+          const [tempPath] = ctx.input;
+          if (path_1.default.extname(tempPath) === '.webp') {
+              return ctx.input;
+          }
+          const input = changeExt(tempPath, '.webp');
+          try {
+              await webp_converter_1.default.cwebp(ctx.input, input, '-q 80', '-v');
+              ctx.input = [input];
+              return ctx;
+          }
+          catch (error) {
+              ctx.log.error(error);
+              ctx.emit('notification', {
+                  title: '转webp错误',
+                  body: error
+              });
+          }
+      }
+  };
+```
+
+修改这个函数
+
+```javascript
+const beforeTransformPlugins = {
+      async handle(ctx) {
+          const inputs = [];
+          for (const tempPath of ctx.input) {
+              if (path_1.default.extname(tempPath) === '.webp') {
+                  inputs.push(tempPath);
+                  continue;
+              }
+              const input = changeExt(tempPath, '.webp');
+              try {
+                  await webp_converter_1.default.cwebp(tempPath, input, '-q 80', '-v');
+                  inputs.push(input);
+              }
+              catch (error) {
+                  ctx.log.error(error);
+                  ctx.emit('notification', {
+                      title: '转webp错误',
+                      body: error
+                  });
+                  inputs.push(tempPath);
+              }
+          }
+          ctx.input = inputs;
+          return ctx;
+      }
+  };
+```
+
+然后重启PicGo，问题解决。
+
+这是当时我的PicGo报错日志（日志文件位置：`C:\Users\CalvinHiram\AppData\Roaming\picgo\picgo.log`）：
+
+```text
+  ------Error Stack Begin------                                                                                           TypeError: Cannot read properties of undefined (reading 'buffer')                                                           at Object.n [as handle]
+  (C:\Users\CalvinHiram\AppData\Roaming\picgo\node_modules\picgo-plugin-sftp-uploader\dist\index.cjs:1:8537)
+      at processTicksAndRejections (node:internal/process/task_queues:96:5)
+      at async Qe.doUpload (D:\PicGo\resources\app.asar\node_modules\picgo\dist\index.cjs.js:1:20017)
+      at async Qe.start (D:\PicGo\resources\app.asar\node_modules\picgo\dist\index.cjs.js:1:18788)
+      at async vt.upload (D:\PicGo\resources\app.asar\node_modules\picgo\dist\index.cjs.js:1:75029)
+      at async Object.upload (D:\PicGo\resources\app.asar\index.js:2:881642)
+      at async gi (D:\PicGo\resources\app.asar\index.js:2:884397)
+      at async D:\PicGo\resources\app.asar\index.js:2:885478
+  -------Error Stack End-------
+  2026-08-08 07:36:46 [PicGo ERROR]
+  ------Error Stack Begin------
+  TypeError: Cannot read properties of undefined (reading 'buffer')
+      at Object.n [as handle]
+  (C:\Users\CalvinHiram\AppData\Roaming\picgo\node_modules\picgo-plugin-sftp-uploader\dist\index.cjs:1:8537)
+      at processTicksAndRejections (node:internal/process/task_queues:96:5)
+      at async Qe.doUpload (D:\PicGo\resources\app.asar\node_modules\picgo\dist\index.cjs.js:1:20017)
+      at async Qe.start (D:\PicGo\resources\app.asar\node_modules\picgo\dist\index.cjs.js:1:18788)
+      at async vt.upload (D:\PicGo\resources\app.asar\node_modules\picgo\dist\index.cjs.js:1:75029)
+      at async Object.upload (D:\PicGo\resources\app.asar\index.js:2:881642)
+      at async gi (D:\PicGo\resources\app.asar\index.js:2:884397)
+      at async D:\PicGo\resources\app.asar\index.js:2:885478
+  -------Error Stack End-------
+  2026-08-08 07:36:46 [PicGo INFO] [PicGo Server] upload result
+  2026-08-08 07:36:46 [PicGo WARN] [PicGo Server] upload failed, see picgo.log for more detail ↑
+```
+
+
+
+
+
 ## 第三步：使用
 
 在 PicGo 上传区拖入图片，上传成功后自动返回 Markdown / URL 格式链接。

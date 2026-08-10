@@ -97,6 +97,8 @@ C:\Users\你的用户名\Documents\Klei\你的科雷ID\Cluster_<编号>\
 
 将以下代码保存为 `Deploy-DST.ps1`，放在桌面或其他简单路径。
 
+`该脚本最低使用PowerShell版本为PowerShell 7，所使用的一些语法和特性是PowerShell 7引入的，低于该版本会报错`
+
 ```powershell
 # Deploy-DST.ps1
 # 测试模式：$TestMode = $true 仅打印命令，不实际传输；$false 正式部署
