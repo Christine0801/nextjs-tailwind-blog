@@ -1,7 +1,7 @@
 ---
 title: Gihub Action搭建你的工作流实现博客自动部署
 date: 2026-03-17 20:17:53
-lastmod: 2026-03-19 14:16:16
+lastmod: 2026-08-11 23:27:23
 tags:
   - Github
   - Action
@@ -10,7 +10,7 @@ draft: false
 summary: >-
   目前我学会了使用Gihub Action来部署自己的自动工作流，实现本地编写博客->推送GitHub
   main分支->自动构建->构建好的静态博客推送到服务器，我想把这个过程写下来，以此作为一个教程
-images:[https://calvinhiram.top/images/image_391808836608926.webp]
+images: [https://calvinhiram.top/images/image_391808836608926.webp]
 authors:
   - default
 layout: PostLayout
