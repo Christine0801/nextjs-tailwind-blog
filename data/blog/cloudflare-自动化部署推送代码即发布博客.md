@@ -27,9 +27,9 @@ layout: PostLayout
 
 ### 1. 创建 Pages 项目并连接 Git
 
-1. Cloudflare 控制台 → **Workers & Pages** → 创建 → **Pages**。
-2. 选择「**连接到 Git**」，授权并选择你的 GitHub 仓库。
-3. 点击开始构建。
+1. Cloudflare 控制台 → **Workers & Pages** → 创建 → **Pages**。![PixPin_2026-10-28_07-27-27](https://calvinhiram.top/images/PixPin_2026-10-28_07-28-48.png)
+2. 选择「**连接到 Git**」，授权并选择你的 GitHub 仓库。![PixPin_2026-10-28_07-29-16](https://calvinhiram.top/images/PixPin_2026-10-28_07-30-41.png)选择博客所用的框架模板，如果没有就手动填写。构建命令把构建和导出命令同时写上，导出目录为 out
+3. 点击开始构建。![PixPin_2026-10-28_07-32-27](https://calvinhiram.top/images/PixPin_2026-10-28_07-32-27.png)NODE_VERSION 是为了锁 nodejs 版本用的
 
 ### 2. 配置构建
 
@@ -98,12 +98,6 @@ Next.js 12 对 Node 20+ 兼容性不好（会报类似 `getRandomValues is not a
 
 - Pages 方式：加环境变量 `NODE_VERSION=18`，或在仓库根目录放一个 `.node-version` 文件写 `18`。
 - Actions 方式：`actions/setup-node` 里 `node-version: 18`。
-
-### 3. `update-dates.js` 在云端会失效
-
-这个脚本靠 `git diff` 检测内容变更来自动更新 `lastmod`。但云端构建环境是干净的 clone（没有未提交改动），`git diff` 为空，所以它**不会更新 lastmod**。
-
-这通常没关系——`lastmod` 手动写进 frontmatter 就行，只是别指望它在云端自动刷新。
 
 ## 总结
 

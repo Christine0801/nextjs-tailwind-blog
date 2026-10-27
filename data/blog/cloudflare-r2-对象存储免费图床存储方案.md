@@ -37,7 +37,7 @@ layout: PostLayout
 
 ## 创建存储桶
 
-1. 登录 [Cloudflare 控制台](https://dash.cloudflare.com/)，左侧点「R2 对象存储」。![image-20261028063828109](C:\Users\CalvinHiram\AppData\Roaming\Typora\typora-user-images\image-20261028063828109.png)第一次使用会需要添加订阅计划，这一步需要绑卡，笔者是用了大学时候学校办理的一张中国银行借记卡，具有**UnionPay**标志即可，卡片后面会有安全码
+1. 登录 [Cloudflare 控制台](https://dash.cloudflare.com/)，左侧点「R2 对象存储」。![image-20261028063828109](https://calvinhiram.top/images/image-20261028063828109.png)第一次使用会需要添加订阅计划，这一步需要绑卡，笔者是用了大学时候学校办理的一张中国银行借记卡，具有**UnionPay**标志即可，卡片后面会有安全码
 2. 点「创建存储桶」，起个名字（如 `blog-image`），位置选「自动」。![](https://calvinhiram.top/images/20261028064016479.png)
 3. 进入桶的 Settings，开启 **Public access**（公共访问）——否则图片无法被外部访问。![](https://calvinhiram.top/images/20261028064205487.png)
 
@@ -45,8 +45,8 @@ layout: PostLayout
 
 后面用 PicGo 等工具上传图片，需要一对 S3 凭证：
 
-1. R2 页面右侧点「**管理 R2 API 令牌**」→「创建 API 令牌」。![image-20261028064446604](C:\Users\CalvinHiram\AppData\Roaming\Typora\typora-user-images\image-20261028064446604.png)![](https://calvinhiram.top/images/20261028064525493.png)
-2. 权限选「对象读写」，可以限制只允许访问某个桶（更安全）。![image-20261028064749614](C:\Users\CalvinHiram\AppData\Roaming\Typora\typora-user-images\image-20261028064749614.png)其他都默认，然后创建即可。
+1. R2 页面右侧点「**管理 R2 API 令牌**」→「创建 API 令牌」。![image-20261028064446604](https://calvinhiram.top/images/image-20261028064446604.png)![](https://calvinhiram.top/images/20261028064525493.png)
+2. 权限选「对象读写」，可以限制只允许访问某个桶（更安全）。![image-20261028064749614](https://calvinhiram.top/images/image-20261028064749614.png)其他都默认，然后创建即可。
 3. 创建后页面会显示两组信息，务必**立刻复制保存**：
    - **Access Key ID**：S3 的密钥 ID；
    - **Secret Access Key**：S3 的密钥机密（**只显示这一次**）；
@@ -59,7 +59,7 @@ layout: PostLayout
 R2 的 public 桶默认会提供一个 `pub-xxx.r2.dev` 域名，但它有速率限制、只适合测试。**如果没有自己的域名，这一步就可以忽略**。
 
 1. 先把你的域名通过「添加站点」接到 Cloudflare，改 NS 生效。
-2. 回到桶的 Settings → 自定义域名（Custom Domains）→ 添加。![image-20261028065114129](C:\Users\CalvinHiram\AppData\Roaming\Typora\typora-user-images\image-20261028065114129.png)
+2. 回到桶的 Settings → 自定义域名（Custom Domains）→ 添加。![image-20261028065114129](https://calvinhiram.top/images/image-20261028065114129.png)
 3. Cloudflare 自动配好 DNS 和 SSL 证书。
 
 绑定后，桶里 `images/` 目录下的文件，就能通过 `https://<your domain>/images/xxx.webp` 访问了。

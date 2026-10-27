@@ -38,7 +38,7 @@ layout: PostLayout
 
 1. 注册 [Cloudflare](https://dash.cloudflare.com/) 账号（可以使用 github 账号登录）。
 1. 登录账号后在仪表盘进入域名管理界面，添加前面在 DNSHE 注册的免费域名。![](https://calvinhiram.top/images/20261028060134835.png)然后选择连接域名![](https://calvinhiram.top/images/20261028060309215.png)![](https://calvinhiram.top/images/20261028060541878.png)稍等一会儿 Cloudflare 解析，解析之后会给你两个新的 CNAME，我们需要把这两个新的 CNAME 替换掉 DNSHE 注册的免费域名的默认 CNAME![](https://calvinhiram.top/images/67cbcd7c7d732428f30a5d7533050f1a.jpg)然后去到 DNSHE 后台界面，选择自己注册的那个域名，点击**域名管理**![](https://calvinhiram.top/images/20261028062330939.png)然后点击**DNS 服务器**，把 Cloudflare 给的两个新的 CNAME 复制粘贴填进去，再保存设置![](https://calvinhiram.top/images/20261028062218307.png)![](https://calvinhiram.top/images/20261028062454555.png)至此这个域名就可以开始正常工作了，然后我们就可以通过 Cloudflare 的 Workers 来部署我们的静态网页了。
-1. 这里以我自己的个人博客举例![image-20261028060944358](C:\Users\CalvinHiram\AppData\Roaming\Typora\typora-user-images\image-20261028060944358.png)![](https://calvinhiram.top/images/20261028061131758.png)
+1. 这里以我自己的个人博客举例![image-20261028060944358](https://calvinhiram.top/images/image-20261028060944358.png)![](https://calvinhiram.top/images/20261028061131758.png)
 
 1. 部署成功后，Cloudflare 会分配一个默认域名，形如：
 
@@ -48,7 +48,7 @@ jolly-pond-157b.calvin-hiram.workers.dev
 
 这个域名是 Cloudflare 自动配好 DNS 的，**部署完就能直接访问**。
 
-5. 到这里你可能会问：是不是只能一直用 `workers.dev` 那个丑链接？不是。前面我们已经让 Cloudfalre 帮我们托管好了自行注册的免费域名，现在只需要在 Workers 中添加一个自定义域名就行了。进入我们部署的 Workers 管理后台![](https://calvinhiram.top/images/20261028063130161.png)添加新绑定的自定义域名![image-20261028063217098](C:\Users\CalvinHiram\AppData\Roaming\Typora\typora-user-images\image-20261028063217098.png)然后在新弹窗中选定你托管好的域名，然后保存即可，之后浏览器就可以直接用该域名访问你的网站或者博客了
+5. 到这里你可能会问：是不是只能一直用 `workers.dev` 那个丑链接？不是。前面我们已经让 Cloudfalre 帮我们托管好了自行注册的免费域名，现在只需要在 Workers 中添加一个自定义域名就行了。进入我们部署的 Workers 管理后台![](https://calvinhiram.top/images/20261028063130161.png)添加新绑定的自定义域名![image-20261028063217098](https://calvinhiram.top/images/image-20261028063217098.png)然后在新弹窗中选定你托管好的域名，然后保存即可，之后浏览器就可以直接用该域名访问你的网站或者博客了
 
 ## 总结
 
