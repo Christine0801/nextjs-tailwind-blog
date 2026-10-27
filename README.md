@@ -31,17 +31,18 @@ npm run serve
 
 ## 命令说明
 
-| 命令                      | 说明                                             |
-| ------------------------- | ------------------------------------------------ |
-| `npm run dev`             | 启动开发服务器                                   |
-| `npm run start`           | 启动开发服务器（含文件监听热重载）               |
-| `npm run build`           | 生产构建（自动更新日期、生成封面、生成 sitemap） |
-| `npm run serve`           | 启动生产服务器                                   |
-| `npm run new-post "标题"` | 创建新文章                                       |
-| `npm run lock-post`       | 给文章上密码锁（交互式）                         |
-| `npm run unlock-post`     | 给文章解锁（交互式）                             |
-| `npm run lint`            | 代码检查                                         |
-| `npm run analyze`         | 分析构建产物                                     |
+| 命令                      | 说明                                                  |
+| ------------------------- | ----------------------------------------------------- |
+| `npm run dev`             | 启动开发服务器                                        |
+| `npm run start`           | 启动开发服务器（含文件监听热重载）                    |
+| `npm run build`           | 生产构建（自动更新日期、生成封面、生成 sitemap）      |
+| `npm run serve`           | 启动生产服务器                                        |
+| `npm run export`          | 导出为静态站点（需先 `npm run build`，输出到 `out/`） |
+| `npm run new-post "标题"` | 创建新文章                                            |
+| `npm run lock-post`       | 给文章上密码锁（交互式）                              |
+| `npm run unlock-post`     | 给文章解锁（交互式）                                  |
+| `npm run lint`            | 代码检查                                              |
+| `npm run analyze`         | 分析构建产物                                          |
 
 ## 文章密码保护
 
@@ -87,6 +88,31 @@ BLOG_PW_MY_POST=你的密码
 ## 部署
 
 项目使用 GitHub Actions 自动部署到服务器，详见 `.github/workflows/deploy-server.yml`。
+
+## 静态导出
+
+如需将站点导出为纯静态 HTML（可部署到 GitHub Pages、OSS、Nginx 等任意静态托管）：
+
+```bash
+# 先构建
+npm run build
+
+# 再导出静态站点（输出到 out/ 目录）
+npm run export
+```
+
+或一条命令：
+
+```bash
+npm run build && npm run export
+```
+
+> ⚠️ 注意：静态导出不支持 API Routes，且 `next.config.js` 里配置的 `redirects` 与 `headers` 不会生效。具体影响：
+>
+> - `src/pages/api/` 下的邮件订阅接口（buttondown / convertkit / klaviyo / mailchimp）在纯静态环境下不会生效；
+> - `/blog/1`、`/blog/4`、`/blog/6` 的旧链接重定向、以及安全响应头（CSP 等）需要改在托管层（Nginx / Netlify `_redirects` / `_headers`）配置。
+>
+> 若依赖这些服务端功能，请改用 `npm run serve` 部署到 Node.js 服务器。
 
 ## License
 

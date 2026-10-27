@@ -11,6 +11,7 @@
     "update-dates": "node scripts/update-dates.js",
     "build": "node scripts/update-dates.js && node scripts/generate-covers.js && next build && node ./scripts/generate-sitemap",
     "serve": "next start",
+    "export": "next export",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir src --dir scripts",
     "replace-covers": "node scripts/replace-covers.js",
